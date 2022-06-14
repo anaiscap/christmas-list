@@ -78,6 +78,14 @@ class ListsController {
 		$model = new \Models\Lists();
 		$model -> deleteGift($_GET['id']);
 	}
+	// supprime un abonnement à une liste
+	public function delete_sub()
+	{
+		//supprimer un abonnement
+		$model = new \Models\Lists();
+		$model -> deleteSubscription($_GET['id']);
+	}
+
 
 	//affiche le formulaire de création d'une nouvelle liste
 	public function newList()
@@ -128,6 +136,7 @@ class ListsController {
 			
 		}
 	}
+
 	public function subscribe()
 	{
 			//préparer les données pour les mettre dans la base de données
@@ -147,7 +156,6 @@ class ListsController {
 		$id = $_SESSION['idUser'];
 		$model = new \Models\Lists();
 		$lists = $model -> getAllSubscriptionsByUser($id);
-		var_dump($id);
         $view = 'views/lists.php';
         include 'views/layout.php';
 	}	

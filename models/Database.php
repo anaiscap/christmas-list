@@ -12,6 +12,7 @@ abstract class Database
 	public function __construct()
 	{
 		$this -> bdd = new \PDO('mysql:host=db.3wa.io;dbname=anaiscap_christmas_list;charset=utf8','anaiscap','6f1143afb9e61c5b9f1fb592a63c1bc2');
+		$this-> bdd -> setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 	}
 	
 	public function findAll(string $req,array $params = [])

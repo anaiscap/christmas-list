@@ -41,7 +41,7 @@ class Lists extends Database
 	public function getListById(int $id):array
 	{
 		return $this -> findOne('
-		SELECT  id_list, name, first_name
+		SELECT  id_list, name, first_name, last_name
 		FROM lists
 		INNER JOIN users ON lists.id_user = users.id_user
 		WHERE id_list = ?',[$id]);
@@ -57,15 +57,15 @@ class Lists extends Database
 	public function subscribeList($id_list, $id_user) 
 	{
 		$this -> query(
-			"INSERT INTO subscription (id_list, id_user) VALUES (?,?)",
+			"INSERT IGNORE INTO subscription (id_list, id_user) VALUES (?,?)",
 			[$id_list, $id_user]
 			);
 	}
+
 	public function getAllSubscriptionsByUser($id):array
 	{
 		return $this -> findAll('
 			SELECT id_user, id_list FROM subscription
-			ORDER BY date DESC
 			WHERE id_user = ?',[$id]);
 	}
 
@@ -79,5 +79,10 @@ class Lists extends Database
 	{
 		//requête sql qui permet la suppression de la liste
 		$this -> query("DELETE FROM gifts WHERE id_gift = ? ",[$id]);
+	}
+	public function deleteSubscription($id)
+	{
+		//requête sql qui permet la suppression de la liste
+		$this -> query("DELETE FROM subscription WHERE id_list = ? ",[$id]);
 	}
 }

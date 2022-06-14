@@ -1,10 +1,11 @@
+
 function cookie(){
     event.preventDefault();
 
     fetch(`index.php?page=cookie`)
     .then(response=>response.text())
         .then(response=>{
-           document.querySelector(".cookie").style.display="none"; 
+            document.querySelector(".cookie").style.display="none"; 
         });
 }
 
@@ -28,14 +29,14 @@ function deleted(){
 }
 
 document.addEventListener("DOMContentLoaded",function(){
-    
-     let buttons = document.querySelectorAll('.confirmButton');
+
+    let buttons = document.querySelectorAll('.confirmButton');
      //boucle
-     for (let i=0; i<buttons.length; i++){
-         buttons[i].addEventListener('click',deleted);
-     }
-     
-     let btnCookie = document.querySelector('.acceptCookie');
-     btnCookie.addEventListener('click',cookie);
-      
+    for (let i=0; i<buttons.length; i++){
+        buttons[i].addEventListener('click',deleted);
+    }
+
+    let btnCookie = document.querySelector('.acceptCookie');
+    btnCookie.addEventListener('click',cookie);
+
 })

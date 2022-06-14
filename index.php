@@ -75,6 +75,11 @@ if( array_key_exists('route', $_GET) )
             $controller -> delete_gift();
             break;
 
+        case 'deleteSubscription':
+            $controller = new Controllers\ListsController();
+            $controller -> delete_sub();
+            break;
+
         
     }
 }

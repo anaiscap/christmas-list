@@ -7,7 +7,6 @@
                     <div class="mylists">
                         <a href="index.php?route=modify&id=<?=$list['id_list']?>" class="green-btn"><?= $list['name'] ?></a>
                         <div>
-                
                             <button class="confirmButton" data-url="<?= "index.php?route=deleteList&id=".$list['id_list'] ?>" ><a><i class="fas fa-trash-alt"></i></a></button>
                         </div>
                     </div>
