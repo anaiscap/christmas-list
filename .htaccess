@@ -1,0 +1,22 @@
+# activation de la réécriture d'urls
+Options +FollowSymlinks
+RewriteEngine on
+
+
+# pages principales
+RewriteRule ^home$  index.php?route=home [L]
+RewriteRule ^signup$  index.php?route=signup [L]
+RewriteRule ^signin$  index.php?route=signin [L]
+RewriteRule ^account$  index.php?route=account [L]
+#pages user
+RewriteRule ^connexion$  index.php?route=connexion [L]
+RewriteRule ^newUser$  index.php?route=newUser [L]
+RewriteRule ^newlist$  index.php?route=newlist [L]
+RewriteRule ^modify$  index.php?route=modify [L]
+RewriteRule ^lists$  index.php?route=lists [L]
+RewriteRule ^displayList$  index.php?route=displayList [L]
+RewriteRule ^userlists$  index.php?route=userlists [L]
+RewriteRule ^subscription$  index.php?route=subscription [L]
+#Gestion taille max des images
+php_value upload_max_filesize 60M
+php_value post_max_size 62M
