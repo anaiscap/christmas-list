@@ -28,7 +28,7 @@
           <div class="navi-link">
             <?php if(isset($_SESSION['user'])): ?>
               <a class="hover-link" href="index.php?route=mylists&id_user=<?= $_SESSION['idUser'] ?>">Mes Listes</a>
-              <a class="hover-link" href="index.php?route=lists">My subscriptions</a>
+              <a class="hover-link" href="lists">My subscriptions</a>
               <a class="hover-link-animation" href="account"><img class="avatar-img" src="<?= $_SESSION['avatar'] ?>" alt=""></a>
               <a class="hover-link" href="index.php?route=signin&action=deco">Log out</a>
                   <!-- <div class="dropdown">

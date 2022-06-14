@@ -9,12 +9,14 @@
 					<h3 class="gift-title"><?= $gift['title'] ?></h3>
 					<p><a target="blank" href="<?= $gift['link'] ?>"><img src="<?= $gift['gift_src'] ?>" alt="<?= $gift['gift_alt'] ?>"></a></p>
 					<p>PRICE: <?= $gift['price'] ?> €</p>
-					<form action="POST">
-						<label for="booked">Réserver</label>
-						<input type="checkbox" name="booked" id="booked">
-					</form>		
+					<form method="post">
+						<input type="submit" value="Réserver">
+					</form>
+					<a href="index.php?route=booking&id_gift=<?=$gift['id_gift']?>">booking</a>		
 				</div>
-				 
+				<?php var_dump($gift['id_gift']) ?>
+				<?php var_dump($gift['id_list']) ?>
+				<?php var_dump($_SESSION['id_user']) ?>
 
         <?php endforeach; ?>		
 

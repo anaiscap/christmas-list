@@ -24,7 +24,10 @@ if( array_key_exists('route', $_GET) )
             $controller = new Controllers\ListsController();
             $controller->subscribe();
             break;
-
+            case 'booking':
+                $controller = new Controllers\GiftsController();
+                $controller->submitBooking();
+                break;
         case 'signup':
             $controller = new Controllers\NewUserController();
             $controller->display();

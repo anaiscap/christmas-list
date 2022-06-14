@@ -37,4 +37,12 @@ class Gift extends Database
 		WHERE id_gift = ?',[$id]);
 	}
 
+	public function addBooking($id_user, $id_gift)
+	{
+		$this -> query(
+			"INSERT IGNORE INTO giftBooking (id_user, id_gift, id_status) VALUES (?,?,2)",
+			[$id_user, $id_gift]
+			);
+	}
+
 }

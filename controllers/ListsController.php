@@ -112,8 +112,6 @@ class ListsController {
 		}
 	}
 
-	//modifier un cadeau d'une liste
-
 	// formulaire de création d'un nouveau cadeau
 	public function submitGift()
 	{
