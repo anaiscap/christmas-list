@@ -32,6 +32,8 @@
                     <p>
                         <label for='pw'>Mot de passe</label>
                         <input type="password" name="pw" id="pw">
+                        <p><?= $this -> message2 ?></p>
+                    </p>
                     </p>
             </fieldset>
             <button>Créer le compte</button>
