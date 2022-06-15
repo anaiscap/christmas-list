@@ -83,6 +83,12 @@ div.footer.container2 {
   width: 100%;
   max-height: 300px;;
 }
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
 
 /***** TITLES *****/
 .hide {
@@ -133,7 +139,31 @@ margin: 2em;
 }
 
 /***** BUTTONS *****/
-
+.black-btn {
+  background-color: var(--dark);
+  text-transform: uppercase;
+  color: var(--light);
+  padding: 0em 0.5em;
+  border: 2px var(--dark) solid;
+  border-radius: 7px;
+  margin: 1em;
+}
+.gray-btn {
+  background-color: var(--light);
+  text-transform: uppercase;
+  color: var(--dark);
+  padding: 0em 0.5em;
+  border: 2px var(--dark) solid;
+  border-radius: 7px;
+  margin: 1em;
+}
+.gray-btn:hover {
+  background-color: var(--dark);
+  color: var(--light);
+  border: 2px var(--dark) solid;
+  border-radius: 7px;
+  transition: 0.5s ease-out;
+}
 .white-btn {
   background-color: var(--light);
   color: var(--green);
@@ -241,6 +271,7 @@ margin: 2em;
 .mylists {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .list-details {

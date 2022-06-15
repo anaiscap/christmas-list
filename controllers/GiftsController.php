@@ -12,19 +12,19 @@ class GiftsController {
 		//$this -> displayGifts();
 
 	}
-
+	
 
 	// formulaire de création d'une nouvelle liste
 	public function submitBooking()
 	{
+
         //préparer les données pour les mettre dans la base de données
         $id_user = $_SESSION['idUser'];
         $id_gift = $_GET['id_gift'];
 			//mettre les datas en bdd
 			$model = new \Models\Gift();
 			$model -> addBooking($id_user, $id_gift);
-
-			header("location:index.php?route=lists");
+			header("Location: index.php?route=displayBooking");
 				exit;
 	}
 	
@@ -74,23 +74,16 @@ class GiftsController {
         $view = 'views/lists.php';
         include 'views/layout.php';
 	}	
-
-	// formulaire de création d'un statut
-	public function booking()
+	public function displayMyBookings()
 	{
-		if (isset( $_POST['name']) && !empty($_POST['name']))
-		{
-			//préparer les données pour les mettre dans la base de données
-			$id_user = $_SESSION['idUser'];
-			$name = $_POST['name'];
-
-			//mettre les datas en bdd
-			$model = new \Models\Lists();
-			$model -> addList($id_user, $name);
-
-			header('location:index.php?route=mylists');
-				exit;
-		}
+		//afficher les listes de l'utilisateur
+		$id = $_SESSION['idUser'];
+		$model = new \Models\Gift();
+		$bookings = $model -> getAllBookingsByUser($id);
+        $view = 'views/bookings.php';
+        include 'views/layout.php';
 	}
+	// formulaire de création d'un statut
+	
 
 }

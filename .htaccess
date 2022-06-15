@@ -17,6 +17,7 @@ RewriteRule ^lists$  index.php?route=lists [L]
 RewriteRule ^displayList$  index.php?route=displayList [L]
 RewriteRule ^userlists$  index.php?route=userlists [L]
 RewriteRule ^subscription$  index.php?route=subscription [L]
+RewriteRule ^displayBooking$  index.php?route=displayBooking [L]
 #Gestion taille max des images
 php_value upload_max_filesize 60M
 php_value post_max_size 62M

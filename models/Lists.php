@@ -49,8 +49,10 @@ class Lists extends Database
 	public function getAllGiftsByListId(int $id):array
 	{
 		return $this -> findAll('
-		SELECT  id_list, id_gift, title, gift_src, gift_alt, link, price
+		SELECT  id_list, giftBooking.id_gift, title, gift_src, gift_alt, link, price, status
 		FROM gifts
+		INNER JOIN giftBooking ON gifts.id_gift = giftBooking.id_gift
+		INNER JOIN status ON giftBooking.id_status = status.id_status
 		WHERE id_list = ?',[$id]);
 	}
 
@@ -65,8 +67,11 @@ class Lists extends Database
 	public function getAllSubscriptionsByUser($id):array
 	{
 		return $this -> findAll('
-			SELECT id_user, id_list FROM subscription
-			WHERE id_user = ?',[$id]);
+		SELECT subscription.id_list, name, first_name, last_name 
+		FROM subscription
+		INNER JOIN lists ON subscription.id_list = lists.id_list
+		INNER JOIN users ON lists.id_user = users.id_user
+		WHERE subscription.id_user = ?',[$id]);
 	}
 
 	public function deleteList($id)

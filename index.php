@@ -10,24 +10,12 @@ if( array_key_exists('route', $_GET) )
 {
     switch( $_GET['route'] )
     {
+// PAGES PRINCIPALES
         case 'home':
             $controller = new Controllers\HomeController();
             $controller->display();
             break;
 
-        case 'userlists':
-            $controller = new Controllers\HomeController();
-            $controller->displayUserLists();
-            break;  
-
-        case 'subscription':
-            $controller = new Controllers\ListsController();
-            $controller->subscribe();
-            break;
-            case 'booking':
-                $controller = new Controllers\GiftsController();
-                $controller->submitBooking();
-                break;
         case 'signup':
             $controller = new Controllers\NewUserController();
             $controller->display();
@@ -42,25 +30,45 @@ if( array_key_exists('route', $_GET) )
             $controller = new Controllers\AccountController();
             $controller->display();
             break;
-
+// PAGES LISTES UTILISATEUR
         case 'mylists':
             $controller = new Controllers\AccountController();
             $controller->displayLists();
+            break;
+
+        case 'modify':
+            $controller = new Controllers\ListsController();
+            $controller->displayModify();
             break;
 
         case 'newlist':
             $controller = new Controllers\ListsController();
             $controller->newList();
             break;
-            
-        case 'modify':
-            $controller = new Controllers\ListsController();
-            $controller->displayModify();
-            break;
-        
+
         case 'lists':
             $controller = new Controllers\ListsController();
             $controller->displayMySubscriptions();
+            break;
+
+        case 'userlists':
+            $controller = new Controllers\HomeController();
+            $controller->displayUserLists();
+            break;  
+// ACTIONS UTILISATEURS
+        case 'subscription':
+            $controller = new Controllers\ListsController();
+            $controller->subscribe();
+            break;
+
+        case 'booking':
+            $controller = new Controllers\GiftsController();
+            $controller->submitBooking();
+            break;
+
+        case 'displayBooking':
+            $controller = new Controllers\GiftsController();
+            $controller->displayMyBookings();
             break;
 
         case 'displayList':
@@ -82,8 +90,6 @@ if( array_key_exists('route', $_GET) )
             $controller = new Controllers\ListsController();
             $controller -> delete_sub();
             break;
-
-        
     }
 }
 else

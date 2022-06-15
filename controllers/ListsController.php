@@ -131,7 +131,6 @@ class ListsController {
 			//mettre les datas en bdd
 			$model = new \Models\Gift();
 			$model -> addGifts($title, $gift_src, $gift_alt, $link, $price, $id_list);
-			
 		}
 	}
 
