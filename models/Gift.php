@@ -8,8 +8,10 @@ class Gift extends Database
 	{
 		return $this -> findAll('
 
-		SELECT  id_list, id_gift, title, gift_src, gift_alt, link, price
+		SELECT  status.id_status, status, id_list, gifts.id_gift, title, gift_src, gift_alt, link, price
 		FROM gifts
+		LEFT JOIN giftBooking ON gifts.id_gift = giftBooking.id_gift
+		LEFT JOIN status ON giftBooking.id_status = status.id_status
 		WHERE id_list = ?',[$id]);
 	}
 	
