@@ -1,42 +1,41 @@
-<section class="sign-up">
-        <p class='avatar'>hello</p>
-    <form method="post" class="login">
-            <fieldset>
-                <legend>Identité</legend>
-                <p>
-                <label for='avatar'>Avatar</label>
+<section>
+    <form class="sign-up" method="post" class="login">
+            <fieldset class="avatar-fieldset">
+                <legend class="black-title">Avatar</legend>
+                <div class="avatar-signup">
                     <?php foreach($avatars as $avatar): ?>
-                        <label for='avatar'><img class='avatar' src="<?= htmlspecialchars($avatar['avatar_src']) ?>" alt="<?= htmlspecialchars($avatar['avatar_alt']) ?>"></label>
-                    <input type="radio" name="avatar" value="<?= htmlspecialchars($avatar['id_avatar']) ?>" id="<?= htmlspecialchars($avatar['id_avatar']) ?>">
+                        <div class="mylists">
+                            <label for='avatar'><img class='avatar' src="<?= htmlspecialchars($avatar['avatar_src']) ?>" alt="<?= htmlspecialchars($avatar['avatar_alt']) ?>"></label>
+                            <input type="radio" name="avatar" value="<?= htmlspecialchars($avatar['id_avatar']) ?>" id="<?= htmlspecialchars($avatar['id_avatar']) ?>">
+                        </div>
                     <?php endforeach; ?>
-                </p>
-                
-                <p>
-                    <label for='firstName'>name</label>
-                    <input type="text" name="firstName" id="firstName" value="<?= (isset($_POST['firstName']))? $_POST['firstName']:"" ?>">
-                </p>
-                
-                <p>
-                    <label for='lastName'>Nom</label>
-                    <input type="text" name="lastName" id="lastName" value="<?= (isset($_POST['lastName']))? $_POST['lastName']:"" ?>">
-                </p>
+                    </div>
             </fieldset>
-            
-            <fieldset>
-                <legend>Compte</legend>
+            <div class="avatar-fieldset">
+                <fieldset>
+                    <legend class="black-title">Identité</legend>
                     <p>
-                        <label for='email'>Email</label>
-                        <input type="email" name="email" id="email">
-                            <p><?= $this -> message1 ?></p>
+                        <input type="text" name="firstName" id="firstName" value="<?= (isset($_POST['firstName']))? $_POST['firstName']:"" ?>" placeholder="Prénom">
                     </p>
+                    
                     <p>
-                        <label for='pw'>Mot de passe</label>
-                        <input type="password" name="pw" id="pw">
-                        <p><?= $this -> message2 ?></p>
+                        <input type="text" name="lastName" id="lastName" value="<?= (isset($_POST['lastName']))? $_POST['lastName']:"" ?>" placeholder="Nom">
                     </p>
-                    </p>
-            </fieldset>
-            <button>Créer le compte</button>
+                </fieldset>
+                <fieldset>
+                    <legend class="black-title">Compte</legend>
+                        <p>
+                            <input type="email" name="email" id="email" placeholder="Email">
+                                <p><?= $this -> message1 ?></p>
+                        </p>
+                        <p>
+                            <input type="password" name="pw" id="pw" placeholder="Mot de passe">
+                            <p><?= $this -> message2 ?></p>
+                        </p>
+                        </p>
+                </fieldset>
+                <button class="gray-btn black-title">Créer le compte</button>
+            </div>
 	</form>
 
 </section>
