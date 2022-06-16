@@ -37,7 +37,7 @@ if( array_key_exists('route', $_GET) )
             break;
 
         case 'modify':
-            $controller = new Controllers\ListsController();
+            $controller = new Controllers\GiftsController();
             $controller->displayModify();
             break;
 
@@ -72,7 +72,7 @@ if( array_key_exists('route', $_GET) )
             break;
 
         case 'displayList':
-            $controller = new Controllers\ListsController(); 
+            $controller = new Controllers\GiftsController(); 
             $controller->displayAllGifts();
             break;
         
@@ -82,13 +82,18 @@ if( array_key_exists('route', $_GET) )
             break;
 
         case 'deleteGift':
-            $controller = new Controllers\ListsController();
+            $controller = new Controllers\GiftsController();
             $controller -> delete_gift();
             break;
 
         case 'deleteSubscription':
             $controller = new Controllers\ListsController();
             $controller -> delete_sub();
+            break;
+
+        case 'deleteBooking':
+            $controller = new Controllers\GiftsController();
+            $controller -> delete_booking();
             break;
     }
 }

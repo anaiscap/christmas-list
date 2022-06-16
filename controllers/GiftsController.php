@@ -12,24 +12,7 @@ class GiftsController {
 		//$this -> displayGifts();
 
 	}
-	
 
-	// formulaire de création d'une nouvelle liste
-	public function submitBooking()
-	{
-
-        //préparer les données pour les mettre dans la base de données
-        $id_user = $_SESSION['idUser'];
-        $id_gift = $_GET['id_gift'];
-			//mettre les datas en bdd
-			$model = new \Models\Gift();
-			$model -> addBooking($id_user, $id_gift);
-			header("Location: index.php?route=displayBooking");
-				exit;
-	}
-	
-
-	// formulaire de création d'un nouveau cadeau
 	public function submitGift()
 	{
 		if (isset( $_POST['title']) && !empty($_POST['title']) && isset( $_POST['gift_alt']) && !empty($_POST['gift_alt']) && isset( $_POST['link']) && !empty($_POST['link']) && isset( $_POST['price']) && !empty($_POST['price']) )
@@ -51,29 +34,67 @@ class GiftsController {
 			
 		}
 	}
-
-	public function subscribe()
+	// fonction permettant d'afficher les cadeaux d'une liste
+	public function displayAllGifts()
 	{
-			//préparer les données pour les mettre dans la base de données
-			$id_list = $_GET['id_list'];
-			$id = $_GET['id_user'];
-			$id_user = $_SESSION['idUser'];
-			//mettre les datas en bdd
-			$model = new \Models\Lists();
-			$model -> subscribeList($id_list, $id_user);
+		//défini la liste
+		$model = new \Models\Lists();
+		$lists = $model -> getListById($_GET['id']);
+		$model2 = new \Models\Gift();
+		$bookings = $model2 -> getAllBookingsByUser($_GET['id']);
+		//afficher les cadeaux d'une liste
+		$model1 = new \Models\Gift();
+		$gifts = $model1 -> getAllGiftsByListId($_GET['id']);
+        $view = 'views/displaygifts.php';
+        include 'views/layout.php';
+	}
 
-			header('location:index.php?route=lists');
+	// permet de modifier une liste
+	public function displayModify()
+	{
+		if(!empty($_POST) ){
+			$this -> submitGift();
+		}
+		//modifier une liste de l'utilisateur
+		$model = new \Models\Lists();
+		$lists = $model -> getListById($_GET['id']);
+		//afficher les cadeaux d'une liste
+		$model1 = new \Models\Gift();
+		$gifts = $model1 -> getAllGiftsByListId($_GET['id']);
+        $view = 'views/modifylist.php';
+        include 'views/layout.php';
+	}
+
+	// supprime un cadeau
+	public function delete_gift()
+	{
+		//supprimer un cadeau d'une liste
+		$model = new \Models\Gift();
+		$model -> deleteGift($_GET['id']);
+	}
+
+	// supprime un cadeau
+	public function delete_booking()
+	{
+		//supprimer un cadeau d'une liste
+		$model = new \Models\Gift();
+		$model -> deleteBooking($_GET['id']);
+	}
+
+	// formulaire de création d'une nouvelle liste
+	public function submitBooking()
+	{
+
+        //préparer les données pour les mettre dans la base de données
+        $id_user = $_SESSION['idUser'];
+        $id_gift = $_GET['id_gift'];
+			//mettre les datas en bdd
+			$model = new \Models\Gift();
+			$model -> addBooking($id_user, $id_gift);
+			header("Location: index.php?route=displayBooking");
 				exit;
 	}
-	public function displayMySubscriptions()
-	{
-		//afficher les listes de l'utilisateur
-		$id = $_SESSION['idUser'];
-		$model = new \Models\Lists();
-		$lists = $model -> getAllSubscriptionsByUser($id);
-        $view = 'views/lists.php';
-        include 'views/layout.php';
-	}	
+
 	public function displayMyBookings()
 	{
 		//afficher les listes de l'utilisateur
@@ -83,7 +104,5 @@ class GiftsController {
         $view = 'views/bookings.php';
         include 'views/layout.php';
 	}
-	// formulaire de création d'un statut
 	
-
 }

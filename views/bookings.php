@@ -10,6 +10,7 @@
                         <p><a target="blank" href="<?= $booking['link'] ?>"><img src="<?= $booking['gift_src'] ?>" alt="<?= $booking['gift_alt'] ?>"></a></p>
                         <p>PRICE: <?= $booking['price'] ?> €</p>	
                         <p><?= $booking['status'] ?></p>
+                        <button class="gray-btn confirmButton" data-url="<?= "index.php?route=deleteBooking&id=".$booking['id_gift'] ?>" ><a><i class="fas fa-trash-alt"></i></a></button>
                     </div>
                     </div>
             <?php endforeach; ?>

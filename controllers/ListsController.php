@@ -26,18 +26,7 @@ class ListsController {
         $view = 'views/lists.php';
         include 'views/layout.php';
 	}
-	// fonction permettant d'afficher les cadeaux d'une liste
-	public function displayAllGifts()
-	{
-		//défini la liste
-		$model = new \Models\Lists();
-		$lists = $model -> getListById($_GET['id']);
-		//afficher les cadeaux d'une liste
-		$model1 = new \Models\Lists();
-		$gifts = $model1 -> getAllGiftsByListId($_GET['id']);
-        $view = 'views/displaygifts.php';
-        include 'views/layout.php';
-	}
+	
 	public function display()
 	{
 		//afficher les listes de l'utilisateur connecté
@@ -47,21 +36,7 @@ class ListsController {
         include 'views/layout.php';
 	}
 
-	// permet de modifier une liste
-	public function displayModify()
-	{
-		if(!empty($_POST) ){
-			$this -> submitGift();
-		}
-		//modifier une liste de l'utilisateur
-		$model = new \Models\Lists();
-		$lists = $model -> getListById($_GET['id']);
-		//afficher les cadeaux d'une liste
-		$model1 = new \Models\Lists();
-		$gifts = $model1 -> getAllGiftsByListId($_GET['id']);
-        $view = 'views/modifylist.php';
-        include 'views/layout.php';
-	}
+	
 
 	// supprime la liste
 	public function delete_list()
@@ -71,13 +46,7 @@ class ListsController {
 	    $model -> deleteList($_GET['id']);
 	}
 
-	// supprime un cadeau
-	public function delete_gift()
-	{
-		//supprimer un cadeau d'une liste
-		$model = new \Models\Lists();
-		$model -> deleteGift($_GET['id']);
-	}
+
 	// supprime un abonnement à une liste
 	public function delete_sub()
 	{
@@ -109,28 +78,6 @@ class ListsController {
 
 			header('location:index.php?route=mylists');
 				exit;
-		}
-	}
-
-	// formulaire de création d'un nouveau cadeau
-	public function submitGift()
-	{
-		if (isset( $_POST['title']) && !empty($_POST['title']) && isset( $_POST['gift_alt']) && !empty($_POST['gift_alt']) && isset( $_POST['link']) && !empty($_POST['link']) && isset( $_POST['price']) && !empty($_POST['price']) )
-		{
-			//préparer les données pour les mettre dans la base de données
-			$title = $_POST['title'];
-			$gift_alt = $_POST['gift_alt'];
-			$link = $_POST['link'];
-			$price = $_POST['price'];
-			$gift_src = "assets/img/gifts/{$_FILES['gift_src']['name']}";
-			$id_list = $_GET['id'];
-
-			//upload mon image
-			move_uploaded_file ($_FILES['gift_src']['tmp_name'], $gift_src);
-
-			//mettre les datas en bdd
-			$model = new \Models\Gift();
-			$model -> addGifts($title, $gift_src, $gift_alt, $link, $price, $id_list);
 		}
 	}
 

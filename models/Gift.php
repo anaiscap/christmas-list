@@ -4,6 +4,14 @@ namespace Models;
 
 class Gift extends Database
 {
+	public function getAllGiftsByListId(int $id):array
+	{
+		return $this -> findAll('
+
+		SELECT  id_list, id_gift, title, gift_src, gift_alt, link, price
+		FROM gifts
+		WHERE id_list = ?',[$id]);
+	}
 	
 	public function getAllGifts():array
 	{
@@ -29,6 +37,12 @@ class Gift extends Database
 		WHERE id_gift = ?",[$title, $src, $alt, $link, $price]);
 	}
 
+	public function deleteGift($id)
+	{
+		//requête sql qui permet la suppression de la liste
+		$this -> query("DELETE FROM gifts WHERE id_gift = ? ",[$id]);
+	}
+
 	public function getGiftById(int $id):array
 	{
 		return $this -> findOne('
@@ -45,7 +59,7 @@ class Gift extends Database
 			[$id_user, $id_gift]
 		);
 	} catch (\Exception $e) {
-		throw $e;
+		echo "<script>alert(\"la variable est nulle\")</script>";
 	}
 	}
 
@@ -59,12 +73,19 @@ class Gift extends Database
 	public function getAllBookingsByUser($id):array
 	{
 		return $this -> findAll('
-		SELECT title, gift_src, link, price, status, first_name, last_name, l.id_user 
-		FROM giftBooking INNER JOIN gifts ON giftBooking.id_gift = gifts.id_gift 
+		SELECT gifts.id_gift, title, gift_src, link, price, status, first_name, last_name, l.id_user 
+		FROM giftBooking 
+		INNER JOIN gifts ON giftBooking.id_gift = gifts.id_gift 
 		INNER JOIN lists l ON gifts.id_list = l.id_list 
 		INNER JOIN status ON giftBooking.id_status = status.id_status 
 		INNER JOIN users ON l.id_user = users.id_user 
 		WHERE giftBooking.id_user = ?',[$id]);
+	}
+
+	public function deleteBooking($id)
+	{
+		//requête sql qui permet la suppression de la liste
+		$this -> query("DELETE FROM giftBooking WHERE id_gift= ? ",[$id]);
 	}
 
 

@@ -56,7 +56,7 @@
    <!-- <script type="text/javascript" src='assets/js/stars.js'></script>-->
    <script type="text/javascript" src='assets/js/main.js'></script>
     <footer>
-      <div class="footer container2">
+      <div class="footer">
         <div class="center list-details">
           <p>Mentions Légale</p>
           <p>-</p>

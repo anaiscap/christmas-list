@@ -10,7 +10,7 @@
 					<p><a target="blank" href="<?= $gift['link'] ?>"><img src="<?= $gift['gift_src'] ?>" alt="<?= $gift['gift_alt'] ?>"></a></p>
 					<p>PRICE: <?= $gift['price'] ?> €</p>
 					
-					<button class="confirmButton" data-url="<?= "index.php?route=deleteGift&id=".$gift['id_gift'] ?>"><a><i class="fas fa-trash-alt"></i></a></button>
+					<button class="gray-btn confirmButton" data-url="<?= "index.php?route=deleteGift&id=".$gift['id_gift'] ?>"><a><i class="fas fa-trash-alt"></i></a></button>
 					
 				</div> 
         <?php endforeach; ?>		
