@@ -26,13 +26,35 @@
           </div>
 
           <div class="navi-link">
+            
             <?php if(isset($_SESSION['user'])): ?>
+              <div id="mySidenav" class="sidenav">
+                <a id="closeBtn" href="#" class="close">&times;</a>
+                <div class="sidenav-content">
+                  <a class="hover-link-animation" href="account"><img class="avatar-img" src="<?= $_SESSION['avatar'] ?>" alt=""></a>
+                  <a class="hover-link" href="index.php?route=mylists&id_user=<?= $_SESSION['idUser'] ?>">Mes Listes</a>
+                  <a class="hover-link" href="lists">My subscriptions</a>
+                  <a class="hover-link" href="displayBooking">My gifts</a>
+                  <a class="hover-link" href="index.php?route=signin&action=deco">Log out</a>
+                </div>
+                
+              </div>
+
+              <a href="#" id="openBtn">
+                <span class="burger-icon">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </a>
+              <div class="desktop">
               <a class="hover-link" href="index.php?route=mylists&id_user=<?= $_SESSION['idUser'] ?>">Mes Listes</a>
               <a class="hover-link" href="lists">My subscriptions</a>
               <a class="hover-link" href="displayBooking">My gifts</a>
               <a class="hover-link-animation" href="account"><img class="avatar-img" src="<?= $_SESSION['avatar'] ?>" alt=""></a>
               <a class="hover-link" href="index.php?route=signin&action=deco">Log out</a>
-                  <!-- <div class="dropdown">
+              </div>
+                 <!--  <div class="dropdown">
                       <a href="#" class="deroulant"><i class="fas fa-user"></i><span> <?= $_SESSION['user'] ?></span></a>
                       
                       <p><a class="hover-link-animation" href="account"><img class="avatar-img" src="" alt=""></a></p>

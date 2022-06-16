@@ -33,13 +33,13 @@ class ConnectionController
 	{
 	    //je déconnecte l'utilisateur
 			session_destroy();
-			header('location:index.php');
+			header('Location: index.php');
 			exit;
 	}
 	
 	public function submit() 
 	{
-	    include 'models/User.php';
+		include 'models/User.php';
 		
 		$email = $_POST['email'];
 		$pw = $_POST['pw'];
@@ -66,7 +66,7 @@ class ConnectionController
 				$_SESSION['avatar'] = $user['avatar_src'];
 				$_SESSION['idUser'] = $user['id_user'];
 				//redirige vers la page d'accueil
-				header('location:account');
+				header('Location: account');
 				exit;
 			}
 			else

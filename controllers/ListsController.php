@@ -76,7 +76,7 @@ class ListsController {
 			$model = new \Models\Lists();
 			$model -> addList($id_user, $name);
 
-			header('location:index.php?route=mylists');
+			header('Location: index.php?route=mylists');
 				exit;
 		}
 	}
@@ -91,7 +91,7 @@ class ListsController {
 			$model = new \Models\Lists();
 			$model -> subscribeList($id_list, $id_user);
 
-			header('location:index.php?route=lists');
+			header('Location: index.php?route=lists');
 				exit;
 	}
 	public function displayMySubscriptions()

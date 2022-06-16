@@ -35,7 +35,7 @@ class NewUserController {
 	{
 	    //je déconnecte l'utilisateur
 			session_destroy();
-			header('location:home');
+			header('Location: home');
 			exit;
 	}
 	
@@ -59,7 +59,7 @@ class NewUserController {
 			try 
 			{
 			$model -> AddUser($firstName, $lastName, $avatar, $email, $pw);
-			header('location:index.php?page=home');
+			header('Location: index.php?page=home');
 				exit;
 			}
 			catch(\Exception $e)

@@ -8,14 +8,14 @@ Trait SessionController
 	{
 		if(!isset($_SESSION['admin']))
 		{
-			header('location:home');
+			header('Location: home');
 		}
 	}
 	public function redirectIfNotUser()
 	{
 		if(!isset($_SESSION['user']))
 		{
-			header('location:home');
+			header('Location: home');
 		}
 	}
 	
