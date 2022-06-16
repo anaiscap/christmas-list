@@ -7,12 +7,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Voltaire&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pompiere&display=swap');
 
-
+.sidenav-content a {
+  z-index: 2;
+}
 /**********************/
 /***    GENERAL    ***/
 /*********************/
 :root {
   --green: #116F2E;
+  --lightgreen:#d6e5db;
   --dark: black;
   --light: white;
   --red: #b10e36;
@@ -27,13 +30,19 @@ body {
 
 header {
     background-color: var(--light);
-    border-bottom: 2px var(--green) solid;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    height: 114px;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    
 }
 p {
   font-size: 1.3em;
 }
 nav {
     padding: 1em 0em; 
+    overflow: hidden;
 }
 
 nav ul {
@@ -54,6 +63,7 @@ main {
 
 h1 {
     color: var(--green); 
+    
 }
 
 a {
@@ -130,6 +140,10 @@ div.footer.container2 {
 .center {
   text-align: center;
 }
+div.center.container2 {
+  width: 70%;
+  margin: 0 auto;
+}
 
 .flex-row {
   display: flex;
@@ -140,7 +154,7 @@ div.footer.container2 {
 
 /***** CONTAINERS *****/
 .container1 { 
-  background-color: rgba(38, 119, 64, 0.19);
+  background-color: var(--lightgreen);
   width: 100%;
   padding: 2em 0em;
 }
@@ -254,6 +268,7 @@ margin: 2em;
 
 .accueil {
   width: 100%;
+  margin-top: 114px;
 }
 
 .about {
@@ -276,12 +291,15 @@ margin: 2em;
 }
 
 .container2 h2 {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
 
 .container2 .list-details {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+
 }
 
 #myVideo {
@@ -538,7 +556,7 @@ transform: scaleX(1);
   z-index: 1;
   top: 0;
   left: -100%;
-  background-color: #e8e8e8;
+  background-color: var(--lightgreen);
   padding-top: 60px;
   transition: left 0.5s ease;
   text-align: center;
