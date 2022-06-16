@@ -19,10 +19,15 @@
 			<div class="center list-details">
 				
 				<?php foreach($users as $user ): ?>
-					<div class="mylists">
-					<a href="index.php?route=userlists&id=<?=$user['id_user']?>"><img class="avatar" src="<?= $user['avatar_src'] ?>" alt=""></a>
+					
+					<?php if ($user['id_user'] !== $_SESSION['idUser']) { ?>
+						<div class="mylists">
+						<a href="index.php?route=userlists&id=<?=$user['id_user']?>"><img class="avatar" src="<?= $user['avatar_src'] ?>" alt=""></a>
 						<p><?= $user['first_name'] ?> <?= $user['last_name'] ?></p>
-					</div>
+						</div>
+					<?php	} ?>
+					
+					
 				<?php endforeach; ?>
 			</div>
 		</div> 
