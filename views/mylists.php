@@ -1,6 +1,9 @@
 <section class="accueil">
 
     <h1 class="center white-title">Mes listes</h1>
+        <div class="left">
+            <a class="white-btn" href="newlist">ADD NEW LIST</a>
+        </div>
         <div class="center account">
             <?php foreach($lists as $list): ?> 
                 <?php if($id==$list['id_user']): ?> 

@@ -15,11 +15,10 @@ class GiftsController {
 
 	public function submitGift()
 	{
-		if (isset( $_POST['title']) && !empty($_POST['title']) && isset( $_POST['gift_alt']) && !empty($_POST['gift_alt']) && isset( $_POST['link']) && !empty($_POST['link']) && isset( $_POST['price']) && !empty($_POST['price']) )
+		if (isset( $_POST['title']) && !empty($_POST['title']) && isset( $_POST['link']) && !empty($_POST['link']) && isset( $_POST['price']) && !empty($_POST['price']) )
 		{
 			//préparer les données pour les mettre dans la base de données
 			$title = $_POST['title'];
-			$gift_alt = $_POST['gift_alt'];
 			$link = $_POST['link'];
 			$price = $_POST['price'];
 			$gift_src = "assets/img/gifts/{$_FILES['gift_src']['name']}";
@@ -30,7 +29,7 @@ class GiftsController {
 
 			//mettre les datas en bdd
 			$model = new \Models\Gift();
-			$model -> addGifts($title, $gift_src, $gift_alt, $link, $price, $id_list);
+			$model -> addGifts($title, $gift_src, $link, $price, $id_list);
 			
 		}
 	}

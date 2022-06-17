@@ -45,6 +45,8 @@ function deleted(){
     
 }
 
+
+
 document.addEventListener("DOMContentLoaded",function(){
 
     let buttons = document.querySelectorAll('.confirmButton');

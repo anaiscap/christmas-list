@@ -8,7 +8,7 @@ class Gift extends Database
 	{
 		return $this -> findAll('
 
-		SELECT  status.id_status, status, id_list, gifts.id_gift, title, gift_src, gift_alt, link, price
+		SELECT  status.id_status, status, id_list, gifts.id_gift, title, gift_src, link, price
 		FROM gifts
 		LEFT JOIN giftBooking ON gifts.id_gift = giftBooking.id_gift
 		LEFT JOIN status ON giftBooking.id_status = status.id_status
@@ -18,25 +18,25 @@ class Gift extends Database
 	public function getAllGifts():array
 	{
 		return $this -> findAll('
-			SELECT id_gift, title, gift_src, gift_alt, link, price, id_list FROM gifts
+			SELECT id_gift, title, gift_src, link, price, id_list FROM gifts
 			ORDER BY title DESC'
 			);
 	}
 
-	public function addGifts($title, $gift_src, $gift_alt, $link, $price, $id_list)
-	{var_dump($title, $gift_src, $gift_alt, $link, $price, $id_list);
+	public function addGifts($title, $gift_src, $link, $price, $id_list)
+	{
 		$this -> query(
-			"INSERT INTO gifts (title, gift_src, gift_alt, link, price, id_list) VALUES (?,?,?,?,?,?)",
-			[$title, $gift_src, $gift_alt, $link, $price, $id_list]
+			"INSERT INTO gifts (title, gift_src, link, price, id_list) VALUES (?,?,?,?,?)",
+			[$title, $gift_src, $link, $price, $id_list]
 			);
 	}
 
-	public function ModifyGift($title, $src, $alt, $link, $price )
+	public function ModifyGift($title, $src, $link, $price )
 	{
 		//requêtes sql qui permet la modification d'un cadeau
 		$this -> query("UPDATE blog 
-		SET title = ?, gift_src = ?, gift_alt = ?, link = ?, price = ?
-		WHERE id_gift = ?",[$title, $src, $alt, $link, $price]);
+		SET title = ?, gift_src = ?, link = ?, price = ?
+		WHERE id_gift = ?",[$title, $src, $link, $price]);
 	}
 
 	public function deleteGift($id)
@@ -48,7 +48,7 @@ class Gift extends Database
 	public function getGiftById(int $id):array
 	{
 		return $this -> findOne('
-		SELECT title, gift_src, gift_alt, link, price, id_list
+		SELECT title, gift_src, link, price, id_list
 		FROM gifts 
 		WHERE id_gift = ?',[$id]);
 	}

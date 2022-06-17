@@ -30,10 +30,6 @@
 				<label for="gift_src">Image</label>
 				<input type="file" name="gift_src" id="gift_src"/>
 			</p>
-			<p>	
-				<label for="gift_alt">Alt</label>
-				<input type="text" name="gift_alt" id="gift_alt"/>
-			</p>
 			<p>
 				<label for='link'>Link</label>
 				<input type="url" name="link" id="link"
