@@ -5,16 +5,14 @@
 	<div class="list-details">
 	
 		<?php foreach($gifts as $gift): ?> 
-				<div class="gift ld ld-jelly-alt">
+				<div data-id="<?=$gift['id_gift']?>" class="gift ld ld-jelly-alt">
 					<h3 class="gift-title"><?= $gift['title'] ?></h3>
 					<p><a target="blank" href="<?= $gift['link'] ?>"><img src="<?= $gift['gift_src'] ?>" alt="<?= $gift['gift_alt'] ?>"></a></p>
 					<p>PRICE: <?= $gift['price'] ?> €</p>
 					
-					<button class="gray-btn confirmButton" data-url="<?= "index.php?route=deleteGift&id=".$gift['id_gift'] ?>"><a><i class="fas fa-trash-alt"></i></a></button>
-					
+					<button class="gray-btn confirmButton" data-id="<?=$gift['id_gift']?>" data-url="<?= "index.php?route=deleteGift&id=".$gift['id_gift'] ?>"><a><i class="fas fa-trash-alt"></i></a></button>
 				</div> 
         <?php endforeach; ?>		
-
 	</div>
 	<div class="form">
 

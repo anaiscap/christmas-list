@@ -71,10 +71,10 @@ class Lists extends Database
 		$this -> query("DELETE FROM lists WHERE id_list = ? ",[$id]);
 	}
 
-	
 	public function deleteSubscription($id)
 	{
 		//requête sql qui permet la suppression de la liste
 		$this -> query("DELETE FROM subscription WHERE id_list = ? ",[$id]);
+		
 	}
 }

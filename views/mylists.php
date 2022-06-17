@@ -7,10 +7,10 @@
         <div class="center account">
             <?php foreach($lists as $list): ?> 
                 <?php if($id==$list['id_user']): ?> 
-                    <div class="mylists">
+                    <div data-id="<?=$list['id_list']?>" class="mylists">
                         <a href="index.php?route=modify&id=<?=$list['id_list']?>" class="green-btn"><?= $list['name'] ?></a>
                         <div>
-                            <button class="gray-btn confirmButton" data-url="<?= "index.php?route=deleteList&id=".$list['id_list'] ?>" ><a><i class="fas fa-trash-alt"></i></a></button>
+                            <button class="gray-btn confirmButton" data-id="<?=$list['id_list']?>" data-url="<?= "index.php?route=deleteList&id=".$list['id_list'] ?>" ><a><i class="fas fa-trash-alt"></i></a></button>
                         </div>
                     </div>
                 <?php endif ?>

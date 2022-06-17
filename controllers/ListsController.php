@@ -77,7 +77,7 @@ class ListsController {
 			$model -> addList($id_user, $name);
 
 			header('Location: index.php?route=mylists');
-				exit;
+			exit;
 		}
 	}
 

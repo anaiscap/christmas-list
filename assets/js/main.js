@@ -34,13 +34,16 @@ function deleted(){
     {
         event.preventDefault();
        //envoie une requête ajax fetch -->index.php en lui disant qu'on veut supprimer une liste et celle qui a l'id 
-        fetch(this.dataset.url)
-        //.then --> supprimer le tr concerné
-        .then(response=>response.text())
-        .then(response=>{
-            this.parentNode.parentNode.remove();   
-        });
-        
+      fetch(this.dataset.url)
+      //.then --> supprimer le tr concerné
+      .then(response=>response.text())
+      .then(response=>{
+         // this.parentNode.remove(); 
+        //window.location.reload(); 
+        document.querySelector(`[data-id="${this.dataset.id}"]`).remove();
+        console.log(document.querySelector(`[data-id="${this.dataset.id}"]`)); 
+      });
+        console.log(this.dataset.url)
     }
     
 }
