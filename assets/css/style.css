@@ -14,11 +14,15 @@
 /***    GENERAL    ***/
 /*********************/
 :root {
-  --green: #116F2E;
-  --lightgreen:#d6e5db;
+ /* --green: #116F2E;*/
+  --green: #1c815f;
+  --lightgreen:#94c4b4;
   --dark: black;
   --light: white;
   --red: #b10e36;
+  --side:#bf123d;
+  --top: #b10e36;
+  --bottom:#b9163f;
 }
 
 body {
@@ -620,4 +624,103 @@ transform: scaleX(1);
   .desktop {
     display:none;
   }
+}
+
+/********* ENVELOPPE ********/
+.envelope {
+  position: relative;
+  cursor: pointer;
+  margin: 0.5em;
+}
+
+.back {
+  position: relative;
+  width: 250px;
+  height: 130px;
+  top: 55px;
+  background-color: #6247aa;
+}
+
+.letter {
+  position: absolute;
+  background-color: #fff;
+  width: 230px;
+  height: 130px;
+  top: 55px;
+  left: 10px;
+  transition: .2s;
+  border: 1px lightgray solid;
+}
+
+.text {
+  text-align: center;
+  font-size: 17px;
+  font-family: arial;
+  margin-top:20px;
+  font-weight: bold;
+}
+
+.front {
+  position: absolute;
+  border-right: 130px solid var(--side);
+  border-top: 65px solid transparent;
+  border-bottom: 65px solid transparent;
+  height: 0;
+  width: 0;
+  top: 55px;
+  left: 120px;
+  z-index: 3;
+}
+
+.front:before {
+  content: "";
+    position: absolute;
+    border-left: 130px solid var(--side);
+    border-top: 65px solid transparent;
+    border-bottom: 65px solid transparent;
+    height: 0;
+    width: 0;
+    top: -65px;
+    left: -120px;
+}
+
+.front:after {
+  content: "";
+  position: absolute;
+  border-bottom: 65px solid var(--bottom);
+  border-left: 125px solid transparent;
+  border-right: 125px solid transparent;
+  height: 0;
+  width: 0;
+  top: 0px;
+  left: -120px;
+}
+
+.top {
+  position: absolute;
+    border-top: 75px solid var(--top);
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    height: 0;
+    width: 0;
+    top: 3.4em;
+    transform-origin: top;
+    transition: .4s;
+}
+.shadow {
+  position: absolute;
+  background-color: rgba(0,0,0,0.1);
+  width:250px;
+  height:10px;
+  top:220px;
+  border-radius:50%;
+}
+
+.envelope:hover .top {
+  transform: rotateX(160deg);
+}
+
+.envelope:hover .letter {
+  transform: translateY(-50px);
+  z-index:2;
 }

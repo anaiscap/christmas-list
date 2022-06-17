@@ -10,11 +10,13 @@ class NewUserController {
     public function __construct()
     {
     	$this -> message1 = "";
-        $this -> message2 = "";
+		$this -> message2 = "";
+		$this -> message3 = "";
+		$this -> message4 = "";
+        
         if(!empty($_POST))
 		{
 			$this -> submit();
-		
 		}
 		if(isset($_GET['action']) && $_GET['action'] == 'deco')
 		{
@@ -42,6 +44,7 @@ class NewUserController {
 	//traitement du formulaire
 	public function submit()
 	{
+		include 'models/User.php';
 		
 		if (isset( $_POST['firstName']) && !empty($_POST['firstName']) && isset( $_POST['lastName']) && !empty($_POST['lastName']) && isset( $_POST['avatar']) && !empty($_POST['avatar']) && isset( $_POST['email']) && !empty($_POST['email']) && isset( $_POST['pw']) && !empty($_POST['pw']))
 		{
@@ -51,19 +54,20 @@ class NewUserController {
 			$avatar= $_POST['avatar'];
 			$email = $_POST['email'];
 			$pw = password_hash($_POST['pw'], PASSWORD_DEFAULT);
-			var_dump($pw);
-			var_dump($_POST['pw']);
 	
 			//mettre les datas en bdd
 			$model = new \Models\User();
 			try 
 			{
 			$model -> AddUser($firstName, $lastName, $avatar, $email, $pw);
-			header('Location: index.php?page=home');
-				exit;
+				//header('Location: index.php?page=home');
+				//exit;
 			}
 			catch(\Exception $e)
 			{
+				if ($firstName == NULL || $lastName == NULL ||$avatar == NULL || $email == NULL || $pw) {
+					$this -> message2 = "Veuillez remplir tous les champs";
+				}
 				$this -> message1 = "Cet email est déjà utilisé";
 			}
 			
