@@ -83,8 +83,18 @@ footer {
   margin-top: 1em;
   position: relative;
 }
+.tag {
+  position: relative;
+}
+.tag:before {
+  content: url(../img/thread2.png);
+  position: absolute;
+  top: 0.7em;
+  left: -2em;
+
+}
 .footer {
-  background-image: url(assets/img/snow-footer.png);
+  background-image: url(../img/snow-footer.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -147,6 +157,10 @@ div.footer.container2 {
 div.center.container2 {
   width: 70%;
   margin: 0 auto;
+}
+
+.margin-right {
+  margin-right: 1em;
 }
 
 .flex-row {
@@ -307,7 +321,6 @@ margin: 2em;
 }
 
 #myVideo {
-  position: block;
   right: 0;
   top: 0;
   min-width: 100%;  
@@ -327,10 +340,30 @@ margin: 2em;
   flex-direction: column;
   align-items: center;
 }
+form.formgift {
+  margin: 1em;
+}
+.formgift {
+  display: flex;
+  flex-direction: column;
+}
+
+.formgift input, .formgift input[type="file" i] {
+  border: none;
+  border-radius: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  background-color: var(--light);
+}
+
+.formgift .white-btn {
+  width: fit-content;
+  margin: 0 auto;
+}
 
 .list-details {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .gift {
@@ -355,6 +388,7 @@ margin: 2em;
 /**********************/
 /***     FORM     ***/
 /*********************/
+
 .sign-up {
   text-align: center;
   width: 60%;
@@ -516,7 +550,7 @@ transform: scaleX(1);
     transform: rotate(0deg);
   }
   11% {
-    animation-timing-function: cubic-bezier(0.1079,0.1992,-0.6462,0.828);
+    animation-timing-function: cubic-bezier(0.1079,0.1992,0.6462,0.828);
     transform: rotate(7.61deg);
   }
   23% {
@@ -625,6 +659,15 @@ transform: scaleX(1);
     display:none;
   }
 }
+@media (max-width: 792px) {
+  .form {
+    background-color: #F6F6F6;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 /********* ENVELOPPE ********/
 .envelope {
@@ -723,4 +766,30 @@ transform: scaleX(1);
 .envelope:hover .letter {
   transform: translateY(-50px);
   z-index:2;
+}
+
+.card-price {
+	display: inline-block;
+  
+  width: auto;
+	height: 38px;
+	
+	background-color: var(--red);
+	-webkit-border-radius: 3px 4px 4px 3px;
+	-moz-border-radius: 3px 4px 4px 3px;
+	border-radius: 3px 4px 4px 3px;
+	
+	border-left: 1px solid var(--red);
+
+	/* This makes room for the triangle */
+	margin-left: 19px;
+	
+	position: relative;
+	
+	color: white;
+	font-weight: 300;
+	font-size: 22px;
+	line-height: 38px;
+
+	padding: 0 10px 0 10px;
 }

@@ -4,7 +4,8 @@
         <div class="center account">
             <?php foreach($bookings as $booking): ?> 
                     <div class="mylists">
-                        <p><?=$booking['first_name']?> <?=$booking['last_name']?></p>
+                        <p class="tag card-price"><?=$booking['first_name']?> <?=$booking['last_name']?></p>
+
                         <div class="gift ld ld-jelly-alt">
                         <h3 class="gift-title"><?= $booking['title'] ?></h3>
                         <p><a target="blank" href="<?= $booking['link'] ?>"><img src="<?= $booking['gift_src'] ?>" alt="<?= $booking['gift_alt'] ?>"></a></p>

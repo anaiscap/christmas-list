@@ -20,28 +20,36 @@
 
 		<img src="assets/img/tree.png" alt="christmas-tree">
 		
-		<form class="login" method="post" enctype="multipart/form-data"> 
-			<h2 class="green-title" >Add a Gift</h2>
-			<p>
-				<label for='title'>Gift title</label>
-				<input type="text" name="title" id="title"/>
-			</p>
-			<p>
-				<label for="gift_src">Image</label>
-				<input type="file" name="gift_src" id="gift_src"/>
-			</p>
-			<p>
-				<label for='link'>Link</label>
-				<input type="url" name="link" id="link"
-					placeholder="https://example.com"
-					pattern="https://.*" size="30"
-					required>
-			</p>
-			<p>
-				<label for='price'>Price</label>
-				<input type="number" name="price" id="price"/>
-			</p>
-			<button class="white-btn" type="submit">ADD TO LIST</button>	
+		<form class="formgift" method="post" enctype="multipart/form-data"> 
+			<h2 class="green-title center" >Add a Gift</h2>
+			<div class="formgift">
+				<div class="list-details">
+					<p class="formgift margin-right" >
+						<label for='title'>Gift title</label>
+						<input type="text" name="title" id="title" />
+					</p>
+					<p class="formgift margin-right">
+						<label for='price'>Price</label>
+						<input type="number" name="price" id="price" />
+					</p>
+					
+				</div>
+				<div class="formgift">
+					<p class="formgift margin-right">
+						<label for='link'>Link</label>
+						<input type="url" name="link" id="link"
+							placeholder="https://example.com"
+							pattern="https://.*" size="30"
+							>
+					</p>
+					<p class="formgift margin-right">
+						<label for="gift_src">Image</label>
+						<input type="file" name="gift_src" id="gift_src" />
+					</p>
+					
+				</div>
+			</div>
+			<button class="white-btn center" type="submit">ADD TO LIST</button>	
 		</form>
 
 	</div>
