@@ -1,7 +1,7 @@
-<section class="accueil">
+<section id="list-booking" class="accueil">
 
-    <h1 class="center white-title">My bookings</h1>
-        <div class="center account">
+    <h1 class="center white-title heavy">My bookings</h1>
+        <div id="printJS-list" class="center account">
             <?php foreach($bookings as $booking): ?> 
                     <div data-id="<?=$booking['id_gift']?>" class="mylists">
                         <p class="tag card-price"><?=$booking['first_name']?> <?=$booking['last_name']?></p>
@@ -15,6 +15,9 @@
                     </div>
             <?php endforeach; ?>
         </div>
+        
+    <button id="test-button" type="button" onclick="printJS('mainid', 'html')">tryprint</button>
+
 </section>
 
 <!--  

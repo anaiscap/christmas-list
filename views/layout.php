@@ -13,8 +13,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/brands.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/solid.min.css">
+    <!--Print JS-->
+    
+    
 </head>
-<body>
+<body class="standard">
     <header>
 
       <nav class="right">
@@ -70,15 +73,18 @@
       </nav>
     </header>
         
-        <main>
+        <main id="mainid">
             <?php include_once $view; ?>
         </main>
     
     
    <!-- <script type="text/javascript" src='assets/js/stars.js'></script>-->
    <script type="text/javascript" src='assets/js/main.js'></script>
+   <script type="text/javascript" src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
     <footer>
       <div class="footer">
+    <div class="container">
+    </div>
         <div class="center list-details">
           <p>Mentions Légale</p>
           <p>-</p>
@@ -91,7 +97,6 @@
       </div>
         
     </footer>
-     
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
