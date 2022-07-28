@@ -16,7 +16,7 @@
             <p><?= $this -> message2 ?></p>
             
             <button class="gray-btn">LOGIN</button>
-            <p>Pas encore de compte ? <a href="signup">Register</a></p>
+            <p>Pas encore de compte ? <a href="signup">S'inscrire</a></p>
             
     </form>
     </div>

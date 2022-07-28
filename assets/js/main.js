@@ -2,12 +2,15 @@
  // function to set a given theme/color-scheme
 const date = Date.now();
 const christmasStart = new Date('2022-06-10');
-const christmasEnd = new Date('2022-06-13');
+const christmasEnd = new Date('2022-6-22');
 const motherStart = new Date('2022-06-10');
 const motherEnd = new Date('2022-06-22');
 const fatherStart = new Date('2022-05-10');
-const fatherEnd = new Date('2022-07-22');
-
+const fatherEnd = new Date('2022-06-22');
+const video = document.querySelector('video');
+var vid = document.getElementById("myVideo");
+var mp4Vid = document.getElementById('mp4Source');
+var player = document.getElementById('videoPlayer');
 
 window.onload = themeHandler();
 function themeHandler() {
@@ -36,61 +39,19 @@ function checkTheme() {
   const localStorageTheme = localStorage.getItem("theme");
   if (localStorageTheme !== null && localStorageTheme === "green") {
     document.body.className = localStorageTheme;
+    video.src = "assets/santaclaus.mp4";
   } else if (localStorageTheme !== null && localStorageTheme === "pink") {
     document.body.className = localStorageTheme;
+    video.src = "assets/pink-vid.mp4";
   } else if (localStorageTheme !== null && localStorageTheme === "blue") {
     document.body.className = localStorageTheme;
+    video.src = "assets/blue-vid.mp4";
   }
   else if (localStorageTheme !== null && localStorageTheme === "standard") {
     document.body.className = localStorageTheme;
+    video.src = "assets/yellow-vid.mp4";
   }
 }
-
- const setTheme = theme => document.documentElement.className = theme;
-
- function standardTheme(){
-  
-  var root = document.querySelector(':root');
-  root.removeAttribute('class');
-  root.classList.add("standard");
-  console.log(localStorage);
- // root.style.setProperty("--primary", "#1c815f");
-  //root.style.setProperty("--secondary", "#94c4b4");
-}
-
- function greenTheme(){
-  
-  var root = document.querySelector(':root');
-  root.removeAttribute('class');
-  root.classList.add("green");
-  console.log(localStorage);
-  localStorage.setItem( 'theme', 'green');  
-  if (localStorage.theme === 'green'){
-    root.classList.add("green");
-  }
- // root.style.setProperty("--primary", "#1c815f");
-  //root.style.setProperty("--secondary", "#94c4b4");
-}
-function blueTheme(){
-  
-  var root = document.querySelector(':root');
-  root.removeAttribute('class');
-  root.classList.add("blue");
-  console.log(localStorage);
- // root.style.setProperty("--primary", "#1c815f");
-  //root.style.setProperty("--secondary", "#94c4b4");
-}
-function pinkTheme(){
-  
-  var root = document.querySelector(':root');
-  root.removeAttribute('class');
-  root.classList.add("pink");
-  console.log(localStorage);
- // root.style.setProperty("--primary", "#1c815f");
-  //root.style.setProperty("--secondary", "#94c4b4");
-}
-
-
 
 var sidenav = document.getElementById("mySidenav");
 var openBtn = document.getElementById("openBtn");
@@ -144,11 +105,11 @@ function deleted(){
 
 
 
-var btn = document.getElementById("btn");
+/*var btn = document.getElementById("btn");
 btn.addEventListener("click", function() {
 	//Do something here
   alert("hello")
-}, false);
+}, false);*/
 
 document.addEventListener("DOMContentLoaded",function(){
 

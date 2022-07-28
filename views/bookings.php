@@ -1,6 +1,6 @@
 <section id="list-booking" class="accueil">
 
-    <h1 class="center white-title heavy">My bookings</h1>
+    <h1 class="center white-title heavy">Mes cadeaux réservés</h1>
         <div id="printJS-list" class="center account">
             <?php foreach($bookings as $booking): ?> 
                     <div data-id="<?=$booking['id_gift']?>" class="mylists">
@@ -16,7 +16,7 @@
             <?php endforeach; ?>
         </div>
         
-    <button id="test-button" type="button" onclick="printJS('mainid', 'html')">tryprint</button>
+    <button id="test-button" type="button" onclick="printJS('mainid', 'html')">Imprimer</button>
 
 </section>
 

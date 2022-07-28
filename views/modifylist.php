@@ -19,22 +19,22 @@
 		<img src="assets/img/tree.png" alt="christmas-tree">
 		
 		<form class="formgift" method="post" enctype="multipart/form-data"> 
-			<h2 class="green-title center" >Add a Gift</h2>
+			<h2 class="green-title center" >Ajouter un cadeau</h2>
 			<div class="formgift">
 				<div class="list-details">
 					<p class="formgift margin-right" >
-						<label for='title'>Gift title</label>
+						<label for='title'>Titre du cadeau</label>
 						<input type="text" name="title" id="title" />
 					</p>
 					<p class="formgift margin-right">
-						<label for='price'>Price</label>
+						<label for='price'>Prix</label>
 						<input type="number" name="price" id="price" />
 					</p>
 					
 				</div>
 				<div class="formgift">
 					<p class="formgift margin-right">
-						<label for='link'>Link</label>
+						<label for='link'>Lien</label>
 						<input type="url" name="link" id="link"
 							placeholder="https://example.com"
 							pattern="https://.*" size="30"
@@ -47,7 +47,7 @@
 					
 				</div>
 			</div>
-			<button class="white-btn center" type="submit">ADD TO LIST</button>	
+			<button class="white-btn center" type="submit">AJOUTER À LA LISTE</button>	
 		</form>
 
 	</div>

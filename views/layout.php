@@ -36,8 +36,8 @@
                 <div class="sidenav-content">
                   <a class="hover-link-animation" href="account"><img class="avatar-img" src="<?= $_SESSION['avatar'] ?>" alt=""></a>
                   <a class="hover-link" href="index.php?route=mylists&id_user=<?= $_SESSION['idUser'] ?>">Mes Listes</a>
-                  <a class="hover-link" href="lists">My subscriptions</a>
-                  <a class="hover-link" href="displayBooking">My gifts</a>
+                  <a class="hover-link" href="lists">Listes de mes amis</a>
+                  <a class="hover-link" href="displayBooking">Mes cadeaux</a>
                   <a class="hover-link" href="index.php?route=signin&action=deco">Log out</a>
                 </div>
                 
@@ -51,9 +51,9 @@
                 </span>
               </a>
               <div class="desktop">
-              <a class="hover-link" href="index.php?route=mylists&id_user=<?= $_SESSION['idUser'] ?>">Mes Listes</a>
-              <a class="hover-link" href="lists">My subscriptions</a>
-              <a class="hover-link" href="displayBooking">My gifts</a>
+              <a class="hover-link" href="index.php?route=mylists&id_user=<?= $_SESSION['idUser'] ?>">Mes Listes d'envies</a>
+              <a class="hover-link" href="lists">Listes de mes amis</a>
+              <a class="hover-link" href="displayBooking">Mes cadeaux</a>
               <a class="hover-link-animation" href="account"><img class="avatar-img" src="<?= $_SESSION['avatar'] ?>" alt=""></a>
               <a class="hover-link" href="index.php?route=signin&action=deco">Log out</a>
               </div>
@@ -86,12 +86,10 @@
     <div class="container">
     </div>
         <div class="center list-details">
-          <p>Mentions Légale</p>
+          <p>Mentions Légales</p>
           <p>-</p>
           <p>Politiques de confidentialité</p>
         </div>
-        
-      <img src="assets/img/snow-footer.png" alt="snow-christmas">
 
         
       </div>

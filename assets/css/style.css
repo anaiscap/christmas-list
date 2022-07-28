@@ -40,6 +40,7 @@
   --top: #b10e36;
   --bottom:#b9163f;
   --logo-bg: url(../img/logo-yellow.png);
+  --footer-bg: url(../img/footer-yellow.png);
 }
 
 .blue {
@@ -54,6 +55,7 @@
   --top: #b10e36;
   --bottom:#b9163f;
   --logo-bg: url(../img/logo-blue.png);
+  --footer-bg: url(../img/footer-blue.png);
 }
 .pink {
   --primary: #e27396;
@@ -67,6 +69,7 @@
   --top: #b10e36;
   --bottom:#b9163f;
   --logo-bg: url(../img/logo-pink.png);
+  --footer-bg: url(../img/footer-pink.png);
 }
 .green {
   /* --green: #116F2E;*/
@@ -81,6 +84,7 @@
   --top: #b10e36;
   --bottom:#b9163f;
   --logo-bg: url(../img/logo-green.png);
+  --footer-bg: url(../img/footer-green.png);
 }
 
 
@@ -119,25 +123,33 @@ main {
 }
 
 h1 {color: var(--primary); }
-
+p a { color: var(--primary);}
 a {
     text-decoration: none !important;
     font-family: 'Pompiere', cursive;
     font-weight: bold;
     text-transform: uppercase;
+   
     /*font-family: 'Voltaire', sans-serif;
     font-family: 'Pathway Gothic One', sans-serif !important;*/
 }
 
-footer {margin-top: 1em; position: relative;}
+main {margin-bottom: 3em;}
+
+footer { position: absolute;
+  bottom: -110%;
+  width: 100%;
+  /* Height of the footer*/ 
+  }
 
 .footer {
-  background-image: url(../img/snow-footer.png);
+  background-image: var(--footer-bg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
+  height: 10rem;
 }
 div.footer.container2 {
   display: flex;
@@ -209,6 +221,7 @@ div.center.container2 {
 }
 
 /***** CONTAINERS *****/
+.container-flex-column {display: flex; flex-direction: column; justify-content: center; align-content: center; align-items: center; text-align: center;}
 .container1 { 
   background-color: var(--secondary);
   width: 100%;
@@ -356,7 +369,6 @@ margin: 2em;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-
 }
 
 #myVideo {
@@ -370,7 +382,7 @@ margin: 2em;
 /*********************/
 .account {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   margin: 2em 0em 5em 0em;
 }
 

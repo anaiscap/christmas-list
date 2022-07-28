@@ -2,11 +2,10 @@
         
 	<div class="video">
 		<video autoplay muted loop id="myVideo">
-			<source src="assets/santaclaus.mp4" type="video/mp4">
-		</video>  
-			
-
-		</div>
+			<source src="" type="video/mp4">
+		</video> 
+	</div>
+	
 		<div class="container1">
 			<div class="center about">
 				<h1>Dear Santa...</h1>
@@ -15,9 +14,17 @@
 		</div> 
 		<?php if(isset($_SESSION['user'])): ?>
 		<div class="center container2">
-			<h2>Les utilisateurs</h2>
+			<h2>Retrouvez vos amis</h2>
+			<!-- Search box. -->
+				<input type="text" id="search" placeholder="Search" />
+				<br>
+				<b>Ex: </b><i>David, Ricky, Ronaldo, Messi, Watson, Robot</i>
+				<br />
+				<!-- Suggestions will be displayed in below div. -->
+				<div id="display"></div>
 			<div class="center list-details">
 				
+	
 				<?php foreach($users as $user ): ?>
 					
 					<?php if ($user['id_user'] !== $_SESSION['idUser']) { ?>

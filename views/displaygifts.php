@@ -7,12 +7,12 @@
 				<div class="gift ld ld-jelly-alt">	
 					<h3 class="gift-title"><?= $gift['title'] ?></h3>
 					<p><a target="blank" href="<?= $gift['link'] ?>"><img src="<?= $gift['gift_src'] ?>" alt="<?= $gift['gift_alt'] ?>"></a></p>
-					<p>PRICE: <?= $gift['price'] ?> €</p>
+					<p>Prix: <?= $gift['price'] ?> €</p>
 					<?php if ($gift['id_status'] == 2) { ?>
-						<p class="black-btn">booked</p>
+						<p class="black-btn">Réservé</p>
 					<?php } ?>
 					<?php if ($gift['id_status'] == NULL) { ?>
-						<a class="gray-btn show book" href="index.php?route=booking&id_gift=<?=$gift['id_gift']?>">booking</a>
+						<a class="gray-btn show book" href="index.php?route=booking&id_gift=<?=$gift['id_gift']?>">Réserver</a>
 					<?php } ?>		
 				</div>
 
