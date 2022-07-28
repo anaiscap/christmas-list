@@ -98,7 +98,7 @@ function deleted(){
         document.querySelector(`[data-id="${this.dataset.id}"]`).remove();
         console.log(document.querySelector(`[data-id="${this.dataset.id}"]`)); 
       });
-        console.log(this.dataset.url)
+        
     }
     
 }
