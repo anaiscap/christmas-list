@@ -1,5 +1,6 @@
 
  // function to set a given theme/color-scheme
+ 
 const date = Date.now();
 const christmasStart = new Date('2022-06-10');
 const christmasEnd = new Date('2022-6-22');
@@ -34,7 +35,7 @@ function themeHandler() {
   }
 }
 
-window.onload = checkTheme();
+window.onload = checkTheme;
 function checkTheme() {
   const localStorageTheme = localStorage.getItem("theme");
   if (localStorageTheme !== null && localStorageTheme === "green") {
