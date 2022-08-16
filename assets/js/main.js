@@ -113,6 +113,17 @@ btn.addEventListener("click", function() {
 
 document.addEventListener("DOMContentLoaded",function(){
 
+
+console.log(localStorage);
+    let buttons = document.querySelectorAll('.confirmButton');
+     //boucle
+    for (let i=0; i<buttons.length; i++){
+        buttons[i].addEventListener('click',deleted);
+    }
+
+    let btnCookie = document.querySelector('.acceptCookie');
+    btnCookie.addEventListener('click',cookie);
+
 // (A) GET HTML ELEMENTS
 var filter = document.getElementById("the-filter"), // search box
 list = document.querySelectorAll("#the-list li"); // all list items
@@ -128,16 +139,5 @@ filter.onkeyup = () => {
     else { i.classList.remove("hide"); }
   }
 };
-
-console.log(localStorage);
-    let buttons = document.querySelectorAll('.confirmButton');
-     //boucle
-    for (let i=0; i<buttons.length; i++){
-        buttons[i].addEventListener('click',deleted);
-    }
-
-    let btnCookie = document.querySelector('.acceptCookie');
-    btnCookie.addEventListener('click',cookie);
-
 
 })
