@@ -1,6 +1,6 @@
 <section class="accueil">
-<div class="container-flex-column">
-	<h1>NOUVELLE LISTE</h1>
+<div class="container-flex-column new-list log-in">
+	<h1>NOUVELLE LISTE.</h1>
 
 	<form class="login" method="post"> 
 

@@ -1,13 +1,12 @@
 
  // function to set a given theme/color-scheme
- 
 const date = Date.now();
 const christmasStart = new Date('2022-06-10');
-const christmasEnd = new Date('2022-6-22');
+const christmasEnd = new Date('2022-7-22');
 const motherStart = new Date('2022-06-10');
-const motherEnd = new Date('2022-06-22');
+const motherEnd = new Date('2022-07-22');
 const fatherStart = new Date('2022-05-10');
-const fatherEnd = new Date('2022-07-30');
+const fatherEnd = new Date('2022-08-30');
 const video = document.querySelector('video');
 var vid = document.getElementById("myVideo");
 var mp4Vid = document.getElementById('mp4Source');
@@ -114,6 +113,21 @@ btn.addEventListener("click", function() {
 
 document.addEventListener("DOMContentLoaded",function(){
 
+// (A) GET HTML ELEMENTS
+var filter = document.getElementById("the-filter"), // search box
+list = document.querySelectorAll("#the-list li"); // all list items
+// (B) ATTACH KEY UP LISTENER TO SEARCH BOX
+filter.onkeyup = () => {
+  // (B1) GET CURRENT SEARCH TERM
+  let search = filter.value.toLowerCase();
+
+  // (B2) LOOP THROUGH LIST ITEMS - ONLY SHOW THOSE THAT MATCH SEARCH
+  for (let i of list) {
+    let item = i.innerHTML.toLowerCase();
+    if (item.indexOf(search) == -1) { i.classList.add("hide"); }
+    else { i.classList.remove("hide"); }
+  }
+};
 
 console.log(localStorage);
     let buttons = document.querySelectorAll('.confirmButton');

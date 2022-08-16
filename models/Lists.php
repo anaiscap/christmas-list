@@ -58,10 +58,11 @@ class Lists extends Database
 	public function getAllSubscriptionsByUser($id):array
 	{
 		return $this -> findAll('
-		SELECT subscription.id_list, name, first_name, last_name 
+		SELECT subscription.id_list, name, first_name, last_name, avatar_src 
 		FROM subscription
 		INNER JOIN lists ON subscription.id_list = lists.id_list
 		INNER JOIN users ON lists.id_user = users.id_user
+		INNER JOIN avatar ON users.avatar = avatar.id_avatar
 		WHERE subscription.id_user = ?',[$id]);
 	}
 

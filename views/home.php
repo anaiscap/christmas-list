@@ -16,27 +16,20 @@
 		<div class="center container2">
 			<h2>Retrouvez vos amis</h2>
 			<!-- Search box. -->
-				<input type="text" id="search" placeholder="Search" />
-				<br>
-				<b>Ex: </b><i>David, Ricky, Ronaldo, Messi, Watson, Robot</i>
-				<br />
+				<input type="text" id="the-filter" placeholder="Ex: Jacques Chirac" />
+				
 				<!-- Suggestions will be displayed in below div. -->
 				<div id="display"></div>
-			<div class="center list-details">
-				
-	
+			<ul id="the-list" class="center list-details">
 				<?php foreach($users as $user ): ?>
-					
 					<?php if ($user['id_user'] !== $_SESSION['idUser']) { ?>
-						<div class="mylists">
+					<li class="mylists">
 						<a href="index.php?route=userlists&id=<?=$user['id_user']?>"><img class="avatar" src="<?= $user['avatar_src'] ?>" alt=""></a>
 						<p><?= $user['first_name'] ?> <?= $user['last_name'] ?></p>
-						</div>
-					<?php	} ?>
-					
-					
+					</li>
+					<?php	} ?>	
 				<?php endforeach; ?>
-			</div>
+			</ul>
 		</div> 
 		<?php endif; ?>
 
