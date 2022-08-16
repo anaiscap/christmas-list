@@ -18,20 +18,26 @@ function themeHandler() {
     document.body.removeAttribute('class');
     document.body.classList.add("green");
     localStorage.setItem("theme", "green");
+   //video.src = "assets/santaclaus.mp4";
   } else if (date > motherStart && date < motherEnd) {
     document.body.removeAttribute('class');
     document.body.classList.add("pink");
-    localStorage.setItem("theme", "pink")
+    localStorage.setItem("theme", "pink");
+    //video.src = "assets/pink-vid.mp4";
   }
   else if (date > fatherStart && date < fatherEnd) {
     document.body.removeAttribute('class');
     document.body.classList.add("blue");
-    localStorage.setItem("theme", "blue")
+    localStorage.setItem("theme", "blue");
+    //video.src = "assets/blue-vid.mp4";
   } else {
     document.body.removeAttribute('class');
     document.body.classList.add("standard");
     localStorage.setItem("theme", "standard");
+    //video.src = "assets/yellow-video.mp4";
+    
   }
+  
 }
 
 window.onload = checkTheme;
@@ -40,18 +46,24 @@ function checkTheme() {
   if (localStorageTheme !== null && localStorageTheme === "green") {
     document.body.className = localStorageTheme;
     video.src = "assets/santaclaus.mp4";
+    searchUser();
   } else if (localStorageTheme !== null && localStorageTheme === "pink") {
     document.body.className = localStorageTheme;
     video.src = "assets/pink-vid.mp4";
+    searchUser();
   } else if (localStorageTheme !== null && localStorageTheme === "blue") {
     document.body.className = localStorageTheme;
     video.src = "assets/blue-vid.mp4";
+    searchUser();
   }
   else if (localStorageTheme !== null && localStorageTheme === "standard") {
     document.body.className = localStorageTheme;
     video.src = "assets/yellow-video.mp4";
+    searchUser();
   }
 }
+
+
 
 var sidenav = document.getElementById("mySidenav");
 var openBtn = document.getElementById("openBtn");
@@ -82,7 +94,7 @@ function cookie(){
 }
 
 function deleted(){
-    
+    console.log("click");
     //demander à l'utilisateur s'il est sûr de lui ?
       //si oui, alors on stoppe le comportement par défaut du lien
     if (confirm("Étes-vous sûrs de supprimer ?"))
@@ -103,28 +115,8 @@ function deleted(){
     
 }
 
-
-
-/*var btn = document.getElementById("btn");
-btn.addEventListener("click", function() {
-	//Do something here
-  alert("hello")
-}, false);*/
-
-document.addEventListener("DOMContentLoaded",function(){
-
-
-console.log(localStorage);
-    let buttons = document.querySelectorAll('.confirmButton');
-     //boucle
-    for (let i=0; i<buttons.length; i++){
-        buttons[i].addEventListener('click',deleted);
-    }
-
-    let btnCookie = document.querySelector('.acceptCookie');
-    btnCookie.addEventListener('click',cookie);
-
-// (A) GET HTML ELEMENTS
+function searchUser(){
+  // (A) GET HTML ELEMENTS
 var filter = document.getElementById("the-filter"), // search box
 list = document.querySelectorAll("#the-list li"); // all list items
 // (B) ATTACH KEY UP LISTENER TO SEARCH BOX
@@ -139,5 +131,19 @@ filter.onkeyup = () => {
     else { i.classList.remove("hide"); }
   }
 };
+}
+
+
+document.addEventListener("DOMContentLoaded", function(){
+
+console.log(localStorage);
+    let buttons = document.querySelectorAll('.confirmButton');
+     //boucle
+    for (let i=0; i<buttons.length; i++){
+        buttons[i].addEventListener('click',deleted);
+    }
+
+    let btnCookie = document.querySelector('.acceptCookie');
+    btnCookie.addEventListener('click',cookie);
 
 })
