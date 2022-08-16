@@ -7,7 +7,7 @@ const christmasEnd = new Date('2022-6-22');
 const motherStart = new Date('2022-06-10');
 const motherEnd = new Date('2022-06-22');
 const fatherStart = new Date('2022-05-10');
-const fatherEnd = new Date('2022-06-22');
+const fatherEnd = new Date('2022-07-30');
 const video = document.querySelector('video');
 var vid = document.getElementById("myVideo");
 var mp4Vid = document.getElementById('mp4Source');
@@ -50,7 +50,7 @@ function checkTheme() {
   }
   else if (localStorageTheme !== null && localStorageTheme === "standard") {
     document.body.className = localStorageTheme;
-    video.src = "assets/yellow-vid.mp4";
+    video.src = "assets/yellow-video.mp4";
   }
 }
 

@@ -24,7 +24,7 @@
         <div class="flex-row">
           <div>
             <a href="home">
-              <img class="logo ld ld-jingle" src="assets/img/logo.png"/>
+              <img class="logo ld ld-jingle" src="assets/img/logo-yellow.png"/>
             </a>
           </div>
 

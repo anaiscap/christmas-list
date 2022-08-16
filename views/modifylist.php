@@ -16,7 +16,7 @@
 	</div>
 	<div class="form">
 
-		<img src="assets/img/tree.png" alt="christmas-tree">
+		<img src="assets/img/gift3.png" alt="christmas-tree">
 		
 		<form class="formgift" method="post" enctype="multipart/form-data"> 
 			<h2 class="green-title center" >Ajouter un cadeau</h2>
