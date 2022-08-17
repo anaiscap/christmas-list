@@ -1,12 +1,12 @@
 
  // function to set a given theme/color-scheme
 const date = Date.now();
-const christmasStart = new Date('2022-06-10');
-const christmasEnd = new Date('2022-7-22');
-const motherStart = new Date('2022-06-10');
-const motherEnd = new Date('2022-07-22');
-const fatherStart = new Date('2022-05-10');
-const fatherEnd = new Date('2022-08-30');
+const christmasStart = new Date('2022-12-01');
+const christmasEnd = new Date('2022-12-31');
+const motherStart = new Date('2022-05-20');
+const motherEnd = new Date('2022-05-29');
+const fatherStart = new Date('2022-06-10');
+const fatherEnd = new Date('2022-06-19');
 const video = document.querySelector('video');
 var vid = document.getElementById("myVideo");
 var mp4Vid = document.getElementById('mp4Source');

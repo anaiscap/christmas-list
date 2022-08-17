@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Christmas List Project</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" media="screen" href="assets/css/style.css">
+    <link rel="stylesheet" media="print" href="assets/css/print.css" />
     <link href="http://fonts.cdnfonts.com/css/candy-cane" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

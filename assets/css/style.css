@@ -148,13 +148,14 @@ footer { position: relative;
   }
 
 .footer {
-  background-image: var(--footer-bg);
+  background-color: var(--primary);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
-  height: 10rem;
+  height: 3rem;
+  font-size: 12px;
 }
 div.footer.container2 {
   display: flex;
