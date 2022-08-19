@@ -6,14 +6,17 @@ const christmasEnd = new Date('2022-12-31');
 const motherStart = new Date('2022-05-20');
 const motherEnd = new Date('2022-08-29');
 const fatherStart = new Date('2022-06-10');
-const fatherEnd = new Date('2022-06-19');
+const fatherEnd = new Date('2022-08-29');
 const video = document.querySelector('video');
 var vid = document.getElementById("myVideo");
 var mp4Vid = document.getElementById('mp4Source');
 var player = document.getElementById('videoPlayer');
 
-window.onload = themeHandler;
+
+window.onload = themeHandler();
+
 function themeHandler() {
+  console.log("works");
   if(date > christmasStart && date < christmasEnd) {
     document.body.removeAttribute('class');
     document.body.classList.add("green");
@@ -80,6 +83,9 @@ function closeNav() {
   sidenav.classList.remove("active");
 };
 
+glowCookies.start('fr', { 
+  policyLink: 'https://cssscript.com/privacy-policy/'
+});
 
 function deleted(){
     console.log("click");
@@ -124,6 +130,7 @@ filter.onkeyup = () => {
 
 document.addEventListener("DOMContentLoaded", function(){
 
+
 console.log(localStorage);
     let buttons = document.querySelectorAll('.confirmButton');
      //boucle
@@ -131,7 +138,6 @@ console.log(localStorage);
         buttons[i].addEventListener('click',deleted);
     }
 
-    let btnCookie = document.querySelector('.acceptCookie');
-    btnCookie.addEventListener('click',cookie);
 
 });
+

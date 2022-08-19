@@ -39,12 +39,12 @@ class Lists extends Database
 			);
 	}
 	
-	public function ModifyList($categorie, $title, $description, $src, $alt, $author, $id )
+	public function ModifyList($name, $id )
 	{
 		//requêtes sql qui permet la modification d'une liste
-		$this -> query("UPDATE blog 
-		SET id_categorie = ?, titre = ?, content = ?, src_img = ?, alt_img = ?, id_auteur = ?
-		WHERE id_article = ?",[$categorie, $title, $description, $src, $alt, $author, $id]);
+		$this -> query("UPDATE lists 
+		SET name = ?
+		WHERE id_list = ?",[$name, $id]);
 	}
 
 	public function subscribeList($id_list, $id_user) 

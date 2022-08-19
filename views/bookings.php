@@ -10,6 +10,14 @@
                             <p><a target="blank" href="<?= $booking['link'] ?>"><img src="<?= $booking['gift_src'] ?>" alt="<?= $booking['gift_alt'] ?>"></a></p>
                             <p>Prix: <?= $booking['price'] ?> €</p>	
                             <button class="gray-btn confirmButton" data-id="<?=$booking['id_gift']?>" data-url="<?= "index.php?route=deleteBooking&id=".$booking['id_gift'] ?>" ><a><i class="fas fa-trash-alt"></i></a></button>
+                            <form action="post">
+                                <select name="status" id="status">
+                                    <option value="volvo">Réservé</option>
+                                    <option value="saab">Commandé</option>
+                                    <option value="mercedes">Reçu</option>
+                                </select>
+                                <input type="submit" value="Submit">
+                            </form>
                             <input class="print-only" type="checkbox" name="" id="">
                         </div>
                     </div>
