@@ -102,7 +102,7 @@ function deleted(){
     }
     
 }
-/*
+
 function searchUser(){
   // (A) GET HTML ELEMENTS
 var filter = document.getElementById("the-filter"), // search box
@@ -120,7 +120,7 @@ filter.onkeyup = () => {
   }
 };
 }
-*/
+
 
 document.addEventListener("DOMContentLoaded", function(){
 
