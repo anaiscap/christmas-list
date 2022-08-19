@@ -19,7 +19,7 @@ class AccountController
 		$users = $model -> getUserById($id);
 		
 		//afficher le formulaire de connexion
-        $view = 'views/user_home.php';
+        $view = 'views/account/user_home.php';
         include 'views/layout.php';
 	}
 	

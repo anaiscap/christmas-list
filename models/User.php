@@ -21,6 +21,13 @@ class User extends Database
 			[$firstName, $lastName, $avatar, $email, $pw]
 		);
 	}
+	public function ModifyUser($first_name, $last_name, $avatar, $email, $password, $id )
+	{
+		//requêtes sql qui permet la modification d'une liste
+		$this -> query("UPDATE lists 
+		SET first_name = ?, last_name = ?, avatar = ?, email = ?, password = ?
+		WHERE id_list = ?",[$first_name, $last_name, $avatar, $email, $password, $id]);
+	}
 
 	public function getUserByEmail($email)
 	{

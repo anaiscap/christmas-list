@@ -12,7 +12,7 @@ class UserController
 		$this -> redirectIfNotUser();
 	}
 	
-	public function display()
+	/*public function display()
 	{
 		$id = $_SESSION['idUser'];
 		$model = new \Models\User();
@@ -21,5 +21,5 @@ class UserController
 		//afficher le formulaire de connexion
         $view = 'views/user_home.php';
         include 'views/layout.php';
-	}
+	}*/
 }

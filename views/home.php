@@ -8,12 +8,41 @@
 	
 		<div class="container1">
 			<div class="center about">
-				<h1>Dear Santa...</h1>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae similique nisi asperiores libero accusamus voluptates rem aperiam iusto dolor. Dolorum nihil quasi alias, perspiciatis voluptates, ipsa quas sunt pariatur odit corrupti doloribus est. Veniam dolore dolor enim officia est rerum quibusdam quis consectetur, ut nobis nulla tempora molestias pariatur laudantium quia esse.</p> 
+				<h1>À propos...</h1>
+				<p>"Noël approche, ai-je déjà fait un cadeau pour tante Hilda ?" "L'année dernière oncle Charlie a reçu deux fois le même cadeau..." Qui n'a jamais rencontré pareilles situations ? Listy est là pour répondre à ces problèmes !</p> 
 			</div>
 		</div> 
+		<div class="center container2 about-container">
+			<div class="container2 about-wrapper gift">
+				<img class="about-img" src="assets/img/signup.png" alt="">
+				<p>Inscrivez-vous en allant sur la page "INSCRIPTION"</p>
+			</div>
+			<img class="curve-right" src="assets/img/arrow5.png" alt="">
+		</div>
+		<div class="center container2 about-container right">
+			<img class="curve-left" src="assets/img/arrow4.png" alt="">
+			<div class="container2 about-wrapper gift">
+				<img class="about-img" src="assets/img/list-icon.png" alt="">
+				<p>Créez votre liste d'envie pour la partager à vos proches</p>
+			</div>
+		</div>
+		<div class="center container2 about-container">
+			<div class="container2 about-wrapper gift">
+				<img class="about-img" src="assets/img/friend-list.png" alt="">
+				<p>Recherchez vos amis pour vous inscrire à leurs listes</p>
+			</div>
+			<img class="curve-right" src="assets/img/arrow5.png" alt="">
+		</div>
+		<div class="center container2 about-container right">
+			<div class="container2 about-wrapper gift">
+				<img class="about-img" src="assets/img/gift3.png" alt="">
+				<p>Réservez les cadeaux que vous souhaitez offrir, plus de place aux doutes !</p>
+			</div>
+			
+		</div>
+		
 		<?php if(isset($_SESSION['user'])): ?>
-		<div class="center container2">
+		<div class="center container2 user-search">
 			<h2>Retrouvez vos amis</h2>
 			<!-- Search box. -->
 				<input type="text" id="the-filter" placeholder="Ex: Jacques Chirac" />

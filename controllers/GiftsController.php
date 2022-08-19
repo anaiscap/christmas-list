@@ -1,7 +1,6 @@
 <?php
 
 namespace Controllers;
-
 class GiftsController {
 	
 	use SessionController;
@@ -9,8 +8,6 @@ class GiftsController {
 	public function __construct()
 	{
 		$this -> redirectIfNotUser();
-		//$this -> displayGifts();
-
 	}
 
 	public function submitGift()
