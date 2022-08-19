@@ -12,7 +12,7 @@ var vid = document.getElementById("myVideo");
 var mp4Vid = document.getElementById('mp4Source');
 var player = document.getElementById('videoPlayer');
 
-window.onload = themeHandler();
+window.onload = themeHandler;
 function themeHandler() {
   if(date > christmasStart && date < christmasEnd) {
     document.body.removeAttribute('class');
@@ -38,7 +38,7 @@ function themeHandler() {
     
   }
   
-}
+};
 
 window.onload = checkTheme;
 function checkTheme() {
@@ -61,7 +61,7 @@ function checkTheme() {
     video.src = "assets/yellow-video.mp4";
     searchUser();
   }
-}
+};
 
 var sidenav = document.getElementById("mySidenav");
 var openBtn = document.getElementById("openBtn");
@@ -73,12 +73,12 @@ closeBtn.onclick = closeNav;
 /* Set the width of the side navigation to 250px */
 function openNav() {
   sidenav.classList.add("active");
-}
+};
 
 /* Set the width of the side navigation to 0 */
 function closeNav() {
   sidenav.classList.remove("active");
-}
+};
 
 
 function deleted(){
@@ -101,9 +101,10 @@ function deleted(){
         
     }
     
-}
+};
 
 function searchUser(){
+
   // (A) GET HTML ELEMENTS
 var filter = document.getElementById("the-filter"), // search box
 list = document.querySelectorAll("#the-list li"); // all list items
@@ -111,7 +112,6 @@ list = document.querySelectorAll("#the-list li"); // all list items
 filter.onkeyup = () => {
   // (B1) GET CURRENT SEARCH TERM
   let search = filter.value.toLowerCase();
-
   // (B2) LOOP THROUGH LIST ITEMS - ONLY SHOW THOSE THAT MATCH SEARCH
   for (let i of list) {
     let item = i.innerHTML.toLowerCase();
@@ -119,7 +119,7 @@ filter.onkeyup = () => {
     else { i.classList.remove("hide"); }
   }
 };
-}
+};
 
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -134,4 +134,4 @@ console.log(localStorage);
     let btnCookie = document.querySelector('.acceptCookie');
     btnCookie.addEventListener('click',cookie);
 
-})
+});
