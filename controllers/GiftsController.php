@@ -108,7 +108,7 @@ class GiftsController {
 	{
 		//préparer les données pour les mettre dans la base de données
 		$status = $_POST['status'];
-		$user = $_POST['iduser'];
+		$user = $_SESSION['idUser'];
 		$gift = $_POST['idgift'];
 		//mettre les datas en bdd
 		$model = new \Models\Gift();
