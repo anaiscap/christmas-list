@@ -57,7 +57,7 @@
               <a class="hover-link-animation" href="account"><img class="avatar-img" src="<?= $_SESSION['avatar'] ?>" alt=""></a>
               <a class="hover-link" href="index.php?route=signin&action=deco">Log out</a>
               </div>
-                 <!--  <div class="dropdown">
+                <!--  <div class="dropdown">
                       <a href="#" class="deroulant"><i class="fas fa-user"></i><span> <?= $_SESSION['user'] ?></span></a>
                       
                       <p><a class="hover-link-animation" href="account"><img class="avatar-img" src="" alt=""></a></p>

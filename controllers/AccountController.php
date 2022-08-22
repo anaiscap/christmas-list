@@ -26,9 +26,14 @@ class AccountController
 	public function displayParameters()
 	{
 		$id = $_SESSION['idUser'];
+	
 		$model = new \Models\User();
 		$users = $model -> getUserById($id);
-		
+		$model1 = new \Models\Avatar();
+		$avatars = $model1 -> getAllAvatars();
+		$idavatar = $users['avatar'];
+		$model2 = new \Models\Avatar();
+		$avatarsrc = $model2 -> findAvatarById($idavatar);
 		//afficher le formulaire de connexion
         $view = 'views/account/parameters.php';
         include 'views/layout.php';
