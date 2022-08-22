@@ -52,22 +52,43 @@ class AccountController
 
 	public function modifyPassword()
 	{
-		$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+		include 'models/User.php';
+		
+		$pw = $_POST['pw'];
+		
+		//comparer avec ce que j'ai en bdd
 		$id = $_SESSION['idUser'];
 		$model = new \Models\User();
+		//aller chercher les infos de l'utilisateur/iden qui essaye de se connecter
 		$users = $model -> getUserById($id);
-
-		if(password_verify($password,$users['password'])){
-			//préparer les données pour les mettre dans la base de données
+		//si l'identifiant existe dans la base alors user contiendra les infos de cet user
+		//sinon $user contiendra false
+	
+			//vérifier le mot de passe
+			if(password_verify($pw,$users['password']))
+			{
+				//le mot de passe correspond
+				//préparer les données pour les mettre dans la base de données
 			$first_name = $_POST['first_name'];
 			$last_name = $_POST['last_name'];
 			$avatar= $_POST['avatar'];
 			$email = $_POST['email'];
-			//password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+			$password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
 			//$id = $_SESSION['idUser'];
 			$model = new \Models\User();
 			$users = $model -> ModifyUser($first_name, $last_name, $avatar, $email, $password, $id);
-		}
+			
+			
+			//redirige vers la page d'accueil
+			header('Location: account');
+			exit;
+			
+			}
+			else
+			{
+				$this -> message2 = "Mauvais mot de passe";
+			}
+		
 		//afficher le formulaire de connexion
         $view = 'views/account/newpassword.php';
         include 'views/layout.php';
