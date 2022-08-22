@@ -3,7 +3,7 @@
     <?php if(isset($_SESSION['user'])): ?>
         <div class="account-frame">
             <img class="avatar-img" src="<?= $_SESSION['avatar'] ?>" alt="avatar-utilisateur">
-            <h1 class="center"><span> <?= $_SESSION['user'] ?></span></h1>
+            <h1 class="center"><span> <?= $users['first_name'] ?> <?= $users['last_name'] ?></span></h1>
         </div>
     <?php endif; ?>     
     
@@ -31,7 +31,7 @@
                 </a>
             </div>
             <div class="center gift">
-                <a href="#">
+                <a href="parameters">
                     <img class="icon" src="assets/img/gears.png" alt="liste-amis">
                     <h2>Mes paramètres</h2>
                 </a>

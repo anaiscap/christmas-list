@@ -8,7 +8,7 @@
 					<h3 class="gift-title"><?= $gift['title'] ?></h3>
 					<p><a target="blank" href="<?= $gift['link'] ?>"><img src="<?= $gift['gift_src'] ?>" alt="<?= $gift['gift_alt'] ?>"></a></p>
 					<p>Prix: <?= $gift['price'] ?> €</p>
-					<?php if ($gift['id_status'] == 2) { ?>
+					<?php if ($gift['id_status'] == 2 || $gift['id_status'] == 3 || $gift['id_status'] == 4) { ?>
 						<p class="black-btn">Réservé</p>
 					<?php } ?>
 					<?php if ($gift['id_status'] == NULL) { ?>

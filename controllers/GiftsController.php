@@ -97,8 +97,25 @@ class GiftsController {
 		$id = $_SESSION['idUser'];
 		$model = new \Models\Gift();
 		$bookings = $model -> getAllBookingsByUser($id);
+		$model1 = new \Models\Gift();
+		$stats = $model1 -> getAllStatus();
+		
         $view = 'views/bookings.php';
         include 'views/layout.php';
 	}
+
+	public function modifyMyBookings()
+	{
+		//préparer les données pour les mettre dans la base de données
+		$status = $_POST['status'];
+		$user = $_POST['iduser'];
+		$gift = $_POST['idgift'];
+		//mettre les datas en bdd
+		$model = new \Models\Gift();
+		$modifyBooking = $model -> ModifyBooking($status, $user, $gift);
+		header('location:displayBooking');
+            exit;
+	}
+	
 	
 }

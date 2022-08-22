@@ -4,9 +4,9 @@ const date = Date.now();
 const christmasStart = new Date('2022-12-01');
 const christmasEnd = new Date('2022-12-31');
 const motherStart = new Date('2022-05-20');
-const motherEnd = new Date('2022-05-29');
+const motherEnd = new Date('2022-08-29');
 const fatherStart = new Date('2022-06-10');
-const fatherEnd = new Date('2022-08-29');
+const fatherEnd = new Date('2022-06-29');
 const video = document.querySelector('video');
 var vid = document.getElementById("myVideo");
 var mp4Vid = document.getElementById('mp4Source');
@@ -16,7 +16,6 @@ var player = document.getElementById('videoPlayer');
 window.onload = themeHandler();
 
 function themeHandler() {
-  console.log("works");
   if(date > christmasStart && date < christmasEnd) {
     document.body.removeAttribute('class');
     document.body.classList.add("green");
@@ -130,8 +129,6 @@ filter.onkeyup = () => {
 
 document.addEventListener("DOMContentLoaded", function(){
 
-
-console.log(localStorage);
     let buttons = document.querySelectorAll('.confirmButton');
      //boucle
     for (let i=0; i<buttons.length; i++){

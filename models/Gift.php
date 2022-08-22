@@ -65,17 +65,17 @@ class Gift extends Database
 	}
 	}
 
-	public function modifyBooking($id_status)
+	public function modifyBooking($status, $user, $gift)
 	{
 		//requêtes sql qui permet la modification d'un cadeau
 		$this -> query("UPDATE giftBooking 
-		SET id_status = ?
-		WHERE id_gift = ?",[$id_status]);
+		SET id_status = ?, id_user = ?
+		WHERE id_gift = ?",[$status, $user, $gift]);
 	}
 	public function getAllBookingsByUser($id):array
 	{
 		return $this -> findAll('
-		SELECT gifts.id_gift, title, gift_src, link, price, status, first_name, last_name, l.id_user 
+		SELECT gifts.id_gift, title, gift_src, link, price, status.id_status, status, first_name, last_name, l.id_user 
 		FROM giftBooking 
 		INNER JOIN gifts ON giftBooking.id_gift = gifts.id_gift 
 		INNER JOIN lists l ON gifts.id_list = l.id_list 
@@ -88,6 +88,13 @@ class Gift extends Database
 	{
 		//requête sql qui permet la suppression de la liste
 		$this -> query("DELETE FROM giftBooking WHERE id_gift= ? ",[$id]);
+	}
+
+	public function getAllStatus():array
+	{
+		return $this -> findAll('
+			SELECT id_status, status FROM status'
+			);
 	}
 
 

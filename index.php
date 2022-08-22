@@ -57,6 +57,21 @@ if( array_key_exists('route', $_GET) )
             $controller->displayUserLists();
             break;  
 // ACTIONS UTILISATEURS
+        
+        case 'parameters':
+            $controller = new Controllers\AccountController();
+            if(!empty($_POST))
+            {
+                $controller -> modifyParameters();
+            }
+            $controller->displayParameters();
+            break;
+
+        case 'newpassword':
+            $controller = new Controllers\AccountController();
+            $controller->modifyPassword();
+            break;
+            
         case 'subscription':
             $controller = new Controllers\ListsController();
             $controller->subscribe();
@@ -69,6 +84,11 @@ if( array_key_exists('route', $_GET) )
 
         case 'displayBooking':
             $controller = new Controllers\GiftsController();
+            //si le formulaire a été soumis
+            if(!empty($_POST))
+            {
+                $controller -> modifyMyBookings();
+            }
             $controller->displayMyBookings();
             break;
 
@@ -96,6 +116,7 @@ if( array_key_exists('route', $_GET) )
             $controller = new Controllers\GiftsController();
             $controller -> delete_booking();
             break;
+            
     }
 }
 else
