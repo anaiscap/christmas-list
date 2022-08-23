@@ -292,6 +292,7 @@ form.formgift {margin: 1em;}
 .gift img {width: 10em; max-height: 10em;}
 .icon {width:4em !important;}
 
+.accueil.parameters {display: flex; flex-direction: column; align-items: center;}
 /**********************/
 /***     FORM     ***/
 /*********************/
