@@ -42,7 +42,7 @@
 		</div>
 		
 		<?php if(isset($_SESSION['user'])): ?>
-		<div class="center container2 user-search">
+		<div id="usersearch" class="center container2 user-search">
 			<h2>Retrouvez vos amis</h2>
 			<!-- Search box. -->
 				<input type="text" id="the-filter" placeholder="Ex: Jacques Chirac" />

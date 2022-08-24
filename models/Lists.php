@@ -39,7 +39,7 @@ class Lists extends Database
 			);
 	}
 	
-	public function ModifyList($name, $id )
+	public function modifyList($name, $id )
 	{
 		//requêtes sql qui permet la modification d'une liste
 		$this -> query("UPDATE lists 

@@ -81,6 +81,35 @@ class ListsController {
 		}
 	}
 
+	public function displayModifyList()
+	{
+		$model = new \Models\Lists();
+		$lists = $model -> getListById($_GET['id']);
+		$view = 'views/listname.php';
+        include 'views/layout.php';
+	}
+
+	public function modify_list()
+	{
+		if (isset( $_POST['name']) && !empty($_POST['name']))
+		{
+			
+			//préparer les données pour les mettre dans la base de données
+			$id_user = $_SESSION['idUser'];
+			$name = $_POST['name'];
+
+			//mettre les datas en bdd
+			$model = new \Models\Lists();
+			$model -> modifyList($id_user, $name);
+
+			header('Location: index.php?route=mylists');
+			exit;
+		}
+
+		$view = 'views/listname.php';
+        include 'views/layout.php';
+	}
+
 	public function subscribe()
 	{
 			//préparer les données pour les mettre dans la base de données

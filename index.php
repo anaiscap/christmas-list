@@ -56,6 +56,7 @@ if( array_key_exists('route', $_GET) )
             $controller = new Controllers\HomeController();
             $controller->displayUserLists();
             break;  
+
 // ACTIONS UTILISATEURS
         
         case 'parameters':
@@ -100,6 +101,16 @@ if( array_key_exists('route', $_GET) )
         case 'deleteList':
             $controller = new Controllers\ListsController();
             $controller -> delete_list();
+            break;
+
+        case 'modifyList':
+            $controller = new Controllers\ListsController();
+            //si le formulaire a été soumis
+            if(!empty($_POST))
+            {
+                $controller -> modify_list();
+            }
+            $controller -> displayModifyList();
             break;
 
         case 'deleteGift':
