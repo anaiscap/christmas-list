@@ -9,6 +9,7 @@
                         <div>
                         <a href="index.php?route=modify&id=<?=$list['id_list']?>" class="green-btn"><?= $list['name'] ?></a>
                             <button class="gray-btn confirmButton" data-id="<?=$list['id_list']?>" data-url="<?= "index.php?route=deleteList&id=".$list['id_list'] ?>" ><a><i class="fas fa-trash-alt"></i></a></button>
+                            <button class="gray-btn"> <a href="modifyList"><i class="fas fa-trash-alt"></i></a></button>
                         </div>
                     </div>
                 <?php endif ?>
