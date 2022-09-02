@@ -18,5 +18,12 @@ Trait SessionController
 			header('Location: home');
 		}
 	}
-	
+	public function redirectIfUser()
+	{
+		if(isset($_SESSION['user']))
+		{
+			header('Location: home');
+		}
+	}
+
 }

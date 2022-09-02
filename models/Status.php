@@ -4,7 +4,6 @@ namespace Models;
 
 class Avatar extends Database
 {
-
 	public function getAllStatus()
 	{
 		return $this -> findAll('

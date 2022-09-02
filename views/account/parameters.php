@@ -27,6 +27,7 @@
             <input name="last_name" id="last_name" type="text" value="<?= $users['last_name'] ?>"></p>
             <p><label for="email">Adresse email</label>
             <input name="email" id="email" type="email" value="<?= $users['email'] ?>"></p>
+            <p><?= $users['msg2_email'] ?></p>
             <input name="password" id="password" type="hidden" value="<?= $users['password'] ?>">
             <button class="gray-btn" type="submit">Enregistrer</button>
         </fieldset>

@@ -4,11 +4,14 @@ namespace Controllers;
 
 class AdminController 
 {
+	use SessionController;
+
     private $message1;
     private $message2;
     
     public function __construct()
     {
+		$this -> redirectIfUser();
         $this -> message1 = "";
         $this -> message2 = "";
         if(!empty($_POST))
@@ -24,6 +27,7 @@ class AdminController
     
 	public function display()
 	{
+
 		//afficher le formulaire de connexion
         $view = 'views/admin/admin.php';
         include_once 'views/layout.php';

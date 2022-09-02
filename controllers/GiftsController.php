@@ -80,7 +80,6 @@ class GiftsController {
 	// formulaire de création d'une nouvelle liste
 	public function submitBooking()
 	{
-
         //préparer les données pour les mettre dans la base de données
         $id_user = $_SESSION['idUser'];
         $id_gift = $_GET['id_gift'];

@@ -1,3 +1,6 @@
+DirectoryIndex index.html
+ErrorDocument 404 http://localhost:8888/christmas/christmas/home
+
 # activation de la réécriture d'urls
 Options +FollowSymlinks
 RewriteEngine on

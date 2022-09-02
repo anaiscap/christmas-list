@@ -3,18 +3,14 @@
 namespace Controllers;
 
 class ListsController {
-	
+	private $message3;
+
 	use SessionController;
-	
+
 	public function __construct()
 	{
 		$this -> redirectIfNotUser();
-		//$this -> displayGifts();
-
-		//si le formulaire a été soumis
-		/*if(!empty($_POST) ){
-			$this -> submitList();
-		}*/
+		$this -> message3 = "";
 	}
 
 	// fonctions permettant d'afficher les listes par utilisateurs
@@ -36,16 +32,13 @@ class ListsController {
         include 'views/layout.php';
 	}
 
-	
-
 	// supprime la liste
 	public function delete_list()
 	{
 		//supprimer une liste de l'utilisateur
-	    $model = new \Models\Lists();
-	    $model -> deleteList($_GET['id']);
+		$model = new \Models\Lists();
+		$model -> deleteList($_GET['id']);
 	}
-
 
 	// supprime un abonnement à une liste
 	public function delete_sub()
@@ -66,12 +59,20 @@ class ListsController {
 	// formulaire de création d'une nouvelle liste
 	public function submitList()
 	{
+		//valider les données enlever tot ce qui est dangereux, bon format
+
 		if (isset( $_POST['name']) && !empty($_POST['name']))
 		{
 			//préparer les données pour les mettre dans la base de données
 			$id_user = $_SESSION['idUser'];
-			$name = $_POST['name'];
-
+			$name_curr = $_POST['name'];
+			if (!preg_match ("/^[a-zA-z]*$/", $name_curr) ) { 
+				//header('Location: newlist'); 
+				print_r("nom invalide");
+			} else {  
+				$name = $name_curr;  
+			}  
+		
 			//mettre les datas en bdd
 			$model = new \Models\Lists();
 			$model -> addList($id_user, $name);
@@ -85,25 +86,29 @@ class ListsController {
 		{
 			$model = new \Models\Lists();
 			$lists = $model -> getListById($_GET['id']);
-		
-	        $view = 'views/listname.php';
-	        include 'views/layout.php';
+			$view = 'views/listname.php';
+			include 'views/layout.php';
 		}
 	public function modify_List()
 		{
 			if (isset( $_POST['name']) && !empty($_POST['name']))
-		{
-			//préparer les données pour les mettre dans la base de données
-			
-			$name = $_POST['name'];
+			{
+				//préparer les données pour les mettre dans la base de données
+				$name_curr = $_POST['name'];
+				if (!preg_match ("/^[a-zA-z]*$/", $name_curr) ) { 
+					header('Location: newlist'); 
+					//$nameErr = "Nom invalide";
+				} else {  
+					$name = $name_curr;  
+				}  
 
-			//mettre les datas en bdd
-			$model = new \Models\Lists();
-			$model -> ModifyList($name, $_GET['id']);
+				//mettre les datas en bdd
+				$model = new \Models\Lists();
+				$model -> ModifyList($name, $_GET['id']);
 
-			header('Location: index.php?route=mylists');
-			exit;
-		}
+				header('Location: index.php?route=mylists');
+				exit;
+			}
 		}
 
 	public function subscribe()

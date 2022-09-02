@@ -5,12 +5,12 @@ namespace Controllers;
 class AccountController 
 {
 	
-	//use SessionController;
+	use SessionController;
 	
-		//public function __construct()
-	//{
-	//	$this -> redirectIfNotUser();
-	//}
+		public function __construct()
+	{
+		$this -> redirectIfNotUser();
+	}
 	
 	public function display()
 	{
@@ -107,6 +107,5 @@ class AccountController
 		$view = 'views/mylists.php';
         include 'views/layout.php';
 	}
-	
-	
+
 }
