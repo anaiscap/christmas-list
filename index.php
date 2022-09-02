@@ -31,6 +31,14 @@ if( array_key_exists('route', $_GET) )
             $controller = new Controllers\AccountController();
             $controller->display();
             break;
+            case 'admin':
+                $controller = new Controllers\AdminController();
+                $controller->display();
+                break;
+            case 'tableau':
+                $controller = new Controllers\DashboardController();
+                $controller -> display();
+                break;  
 // PAGES LISTES UTILISATEUR
         case 'mylists':
             $controller = new Controllers\AccountController();

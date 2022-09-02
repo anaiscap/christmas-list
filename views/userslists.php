@@ -4,7 +4,7 @@
         <div class="center account">
             <?php foreach($lists as $list): ?> 
                 <?php if($id==$list['id_user']): ?> 
-                    <div class="mylists">
+                    <div class="mylists letter-wrapper">
 
                        <!-- <p class="green-btn"><?= $list['name'] ?></p>
                         <p><a href="index.php?route=subscription&id_list=<?=$list['id_list']?>&id=<?=$list['id_user']?>">subscribe</a></p>
