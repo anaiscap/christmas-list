@@ -88,7 +88,7 @@ class GiftsController {
 			$model = new \Models\Gift();
 			$model -> addBooking($id_user, $id_gift);
 			header("Location: index.php?route=displayBooking");
-				exit;
+			exit;
 	}
 
 	public function displayMyBookings()
@@ -114,7 +114,7 @@ class GiftsController {
 		$model = new \Models\Gift();
 		$modifyBooking = $model -> ModifyBooking($status, $user, $gift);
 		header('location:displayBooking');
-            exit;
+        exit;
 	}
 	
 	

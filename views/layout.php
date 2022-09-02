@@ -69,9 +69,9 @@
                     </div>	-->
 
               <?php elseif(isset($_SESSION['admin'])): ?>
-                <p><?= $_SESSION['admin'] ?></p>
-              <a class="hover-link" href="index.php?route=signin&action=deco">Log out</a>
-              <a class="hover-link" href="index.php?route=tableau">Dashboard</a>
+                  <p><?= $_SESSION['admin'] ?></p>
+                  <a class="hover-link" href="index.php?route=signin&action=deco">Log out</a>
+                  <a class="hover-link" href="dashboard">Dashboard</a>
             
               <?php else: ?>
                       <a class="hover-link" href="signin"> Connexion </a>

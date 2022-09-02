@@ -2,8 +2,9 @@
 Options +FollowSymlinks
 RewriteEngine on
 
-RewriteRule ^admin$  index.php?page=admin [L]
-RewriteRule ^tableau$  index.php?page=tableau [L]
+RewriteRule ^admin$  index.php?route=admin [L]
+RewriteRule ^dashboard$  index.php?route=dashboard [L]
+RewriteRule ^modifyUser$  index.php?route=modifyUser [L]
 # pages principales
 RewriteRule ^home$  index.php?route=home [L]
 RewriteRule ^signup$  index.php?route=signup [L]

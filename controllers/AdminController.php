@@ -13,7 +13,7 @@ class AdminController
         $this -> message2 = "";
         if(!empty($_POST))
 		{
-		    $this -> submit();
+			$this -> submit();
 		
 	    }
 	    if(isset($_GET['action']) && $_GET['action'] == 'deco')
@@ -37,7 +37,7 @@ class AdminController
 	}
 	public function submit() 
 	{
-	    include 'models/Admin.php';
+		include 'models/Admin.php';
 		
 		$login = $_POST['login'];
 		$pw = $_POST['pw'];
@@ -46,7 +46,6 @@ class AdminController
 		$model = new \Models\Admin();
 		//aller chercher les infos de l'utilisateur/iden qui essaye dese connecter
 		$admin = $model -> getAdminByLogin($login);
-		
 		
 		//si l'identifiant existe dans la base alors âdmin contiendrales infos de cet admin
 		//sinon $admin contiendra false
@@ -73,6 +72,37 @@ class AdminController
 			}
 		}
 	}	
+
+	public function displayUserParameters()
+	{
+	
+		$model = new \Models\User();
+		$users = $model -> getUserById($_GET['id']);
+		$model1 = new \Models\Avatar();
+		$avatars = $model1 -> getAllAvatars();
+		$idavatar = $users['avatar'];
+		$model2 = new \Models\Avatar();
+		$avatarsrc = $model2 -> findAvatarById($idavatar);
+		//afficher le formulaire de connexion
+        $view = 'views/admin/changeuserpassword.php';
+        include 'views/layout.php';
+	}
+
+	public function modifyUserParameters()
+	{
+		//préparer les données pour les mettre dans la base de données
+		$first_name = $_POST['first_name'];
+		$last_name = $_POST['last_name'];
+		$avatar= $_POST['avatar'];
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+		$id = $_GET['id'];
+		$model = new \Models\User();
+		$users = $model -> ModifyUser($first_name, $last_name, $avatar, $email, $password, $id);
+		
+		header('location:dashboard');
+            exit;
+	}
 }
 
 

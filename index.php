@@ -11,17 +11,38 @@ if( array_key_exists('route', $_GET) )
 {
     switch( $_GET['route'] )
     {
+
+// PAGES ADMIN
+    case 'admin':
+        $controller = new Controllers\AdminController();
+        $controller->display();
+        break;
+    case 'dashboard':
+        $controller = new Controllers\DashboardController();
+        $controller -> display();
+        break;  
+    case 'modifyUser':
+        $controller = new Controllers\AdminController();
+        if(!empty($_POST))
+        {
+            $controller -> modifyUserParameters();
+        }
+        $controller -> displayUserParameters();
+        break; 
 // PAGES PRINCIPALES
         case 'home':
             $controller = new Controllers\HomeController();
             $controller->display();
             break;
+        case 'userlists':
+            $controller = new Controllers\HomeController();
+            $controller->displayUserLists();
+            break;  
 
         case 'signup':
             $controller = new Controllers\NewUserController();
             $controller->display();
             break;
-        
         case 'signin':
             $controller = new Controllers\ConnectionController();
             $controller->display();
@@ -31,20 +52,13 @@ if( array_key_exists('route', $_GET) )
             $controller = new Controllers\AccountController();
             $controller->display();
             break;
-            case 'admin':
-                $controller = new Controllers\AdminController();
-                $controller->display();
-                break;
-            case 'tableau':
-                $controller = new Controllers\DashboardController();
-                $controller -> display();
-                break;  
+
 // PAGES LISTES UTILISATEUR
+    //Listes de l'utilisateur
         case 'mylists':
             $controller = new Controllers\AccountController();
             $controller->displayLists();
             break;
-
         case 'modify':
             $controller = new Controllers\GiftsController();
             $controller->displayModify();
@@ -52,21 +66,41 @@ if( array_key_exists('route', $_GET) )
 
         case 'newlist':
             $controller = new Controllers\ListsController();
+            if(!empty($_POST))
+            {
+                $controller -> submitList();
+            }
             $controller->newList();
             break;
 
-        case 'lists':
+        //Gestion des listes
+        case 'displayList':
+            $controller = new Controllers\GiftsController(); 
+            $controller->displayAllGifts();
+            break;
+        case 'deleteList':
             $controller = new Controllers\ListsController();
-            $controller->displayMySubscriptions();
+            $controller -> delete_list();
+            break;
+        case 'modifyList':
+            $controller = new Controllers\ListsController(); 
+            if(!empty($_POST))
+            {
+                $controller -> modify_List();
+            }
+            $controller->display_List();
             break;
 
-        case 'userlists':
-            $controller = new Controllers\HomeController();
-            $controller->displayUserLists();
-            break;  
+        case 'deleteGift':
+            $controller = new Controllers\GiftsController();
+            $controller -> delete_gift();
+            break;
+
+    
 
 // ACTIONS UTILISATEURS
-        
+
+    //gestion des paramètres    
         case 'parameters':
             $controller = new Controllers\AccountController();
             if(!empty($_POST))
@@ -75,22 +109,31 @@ if( array_key_exists('route', $_GET) )
             }
             $controller->displayParameters();
             break;
-
         case 'newpassword':
             $controller = new Controllers\AccountController();
             $controller->modifyPassword();
             break;
-            
+
+    //abonnements de l'utilisateur
+        case 'lists':
+            $controller = new Controllers\ListsController();
+            $controller->displayMySubscriptions();
+            break;
+    //Abonnements gestion        
         case 'subscription':
             $controller = new Controllers\ListsController();
             $controller->subscribe();
             break;
+        case 'deleteSubscription':
+            $controller = new Controllers\ListsController();
+            $controller -> delete_sub();
+            break;
 
+    //Réservations gestion  
         case 'booking':
             $controller = new Controllers\GiftsController();
             $controller->submitBooking();
             break;
-
         case 'displayBooking':
             $controller = new Controllers\GiftsController();
             //si le formulaire a été soumis
@@ -100,42 +143,10 @@ if( array_key_exists('route', $_GET) )
             }
             $controller->displayMyBookings();
             break;
-
-        case 'displayList':
-            $controller = new Controllers\GiftsController(); 
-            $controller->displayAllGifts();
-            break;
-        
-        case 'deleteList':
-            $controller = new Controllers\ListsController();
-            $controller -> delete_list();
-            break;
-
-        case 'modifyList':
-            $controller = new Controllers\ListsController();
-            //si le formulaire a été soumis
-            if(!empty($_POST))
-            {
-                $controller -> modify_list();
-            }
-            $controller -> displayModifyList();
-            break;
-
-        case 'deleteGift':
-            $controller = new Controllers\GiftsController();
-            $controller -> delete_gift();
-            break;
-
-        case 'deleteSubscription':
-            $controller = new Controllers\ListsController();
-            $controller -> delete_sub();
-            break;
-
         case 'deleteBooking':
             $controller = new Controllers\GiftsController();
             $controller -> delete_booking();
             break;
-            
     }
 }
 else
