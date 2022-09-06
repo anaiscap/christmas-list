@@ -69,8 +69,7 @@ var sidenav = document.getElementById("mySidenav");
 var openBtn = document.getElementById("openBtn");
 var closeBtn = document.getElementById("closeBtn");
 
-openBtn.onclick = openNav;
-closeBtn.onclick = closeNav;
+
 
 /* Set the width of the side navigation to 250px */
 function openNav() {
@@ -134,6 +133,9 @@ document.addEventListener("DOMContentLoaded", function(){
     for (let i=0; i<buttons.length; i++){
         buttons[i].addEventListener('click',deleted);
     }
+
+    openBtn.onclick = openNav;
+    closeBtn.onclick = closeNav;
 
 
 });

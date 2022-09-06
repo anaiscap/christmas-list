@@ -18,24 +18,28 @@
                     <p>
                         <input type="text" name="firstName" id="firstName" value="<?= (isset($_POST['firstName']))? $_POST['firstName']:"" ?>" placeholder="Prénom" required>
                     </p>
-                    
+                    <p><?= $this -> message3 ?></p>
                     <p>
                         <input type="text" name="lastName" id="lastName" value="<?= (isset($_POST['lastName']))? $_POST['lastName']:"" ?>" placeholder="Nom" required>
                     </p>
+                    <p><?= $this -> message4 ?></p>
                 </fieldset>
                 <fieldset>
                     <legend>Compte</legend>
                         <p>
                             <input type="email" name="email" id="email" placeholder="Email" required>
                                 <p><?= $this -> message1 ?></p>
+                                <p><?= $this -> message5 ?></p>
                         </p>
                         <p>
                             <input type="password" name="pw" id="pw" placeholder="Mot de passe" required>
                             <p><?= $this -> message2 ?></p>
+                            <p><?= $this -> message7 ?></p>
                         </p>
                         </p>
                 </fieldset>
                 <button class="gray-btn">Créer le compte</button>
+                <p><?= $this -> message6 ?></p>
             </div>
 	</form>
 

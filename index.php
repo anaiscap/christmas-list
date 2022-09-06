@@ -15,6 +15,10 @@ if( array_key_exists('route', $_GET) )
 // PAGES ADMIN
     case 'admin':
         $controller = new Controllers\AdminController();
+        if(!empty($_POST))
+        {
+            $controller -> submit();
+        }
         $controller->display();
         break;
     case 'dashboard':
@@ -29,6 +33,10 @@ if( array_key_exists('route', $_GET) )
         }
         $controller -> displayUserParameters();
         break; 
+    case 'deleteUser':
+        $controller = new Controllers\AdminController();
+        $controller -> delete_user();
+        break;
 // PAGES PRINCIPALES
         case 'home':
             $controller = new Controllers\HomeController();

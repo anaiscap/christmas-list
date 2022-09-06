@@ -8,7 +8,7 @@
 				<label for='name'>Nom de la liste</label>
 				<input type="text" name="name" id="name"/>
 			</p>
-			<span class="error">* <?php echo $nameErr;?></span>
+			<p><?= $this -> message1 ?></p>
 			<button class="white-btn" type="submit">AJOUTER LA LISTE</button>
 	</form>
 </div>

@@ -8,17 +8,19 @@ class AdminController
 
     private $message1;
     private $message2;
+	private $message3;
     
     public function __construct()
     {
 		$this -> redirectIfUser();
         $this -> message1 = "";
         $this -> message2 = "";
-        if(!empty($_POST))
+		$this -> message3 = "";
+        /*if(!empty($_POST))
 		{
 			$this -> submit();
 		
-	    }
+	    }*/
 	    if(isset($_GET['action']) && $_GET['action'] == 'deco')
 		{
 			$this -> disconnect();
@@ -43,7 +45,7 @@ class AdminController
 	{
 		include 'models/Admin.php';
 		
-		$login = $_POST['login'];
+		$login = htmlspecialchars($_POST['login']);
 		$pw = $_POST['pw'];
 		
 		//comparer avec ce que j'ai en bdd
@@ -94,19 +96,42 @@ class AdminController
 
 	public function modifyUserParameters()
 	{
-		//préparer les données pour les mettre dans la base de données
-		$first_name = $_POST['first_name'];
-		$last_name = $_POST['last_name'];
-		$avatar= $_POST['avatar'];
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-		$id = $_GET['id'];
+		include 'models/User.php';
+
+			//préparer les données pour les mettre dans la base de données
+			$id = $_GET['id'];
+			$firstName = htmlspecialchars($_POST['first_name']);
+			$lastName = htmlspecialchars($_POST['last_name']);
+			$avatar = htmlspecialchars($_POST['avatar']);
+			$email = htmlspecialchars($_POST['email']);
+			$password = htmlspecialchars(password_hash($_POST['new_password'], PASSWORD_DEFAULT));
+		
 		$model = new \Models\User();
-		$users = $model -> ModifyUser($first_name, $last_name, $avatar, $email, $password, $id);
+		try{
+			$model -> ModifyUser($firstName, $lastName, $avatar, $email, $password, $id);
+			
+
+		} catch(\Exception $e) {
+			print_r($e);
+			print_r($password);
+			if ($pw_curr == false) {
+				$this -> message3 = "Le mot de passe doit contenir au moins 8 caractères, dont 1 majuscule, 1 minuscule, 1 chiffre, et 1 caractère spécial.";
+			}
+		} 
 		
 		header('location:dashboard');
-            exit;
+		exit;	
+	}
+	public function delete_user()
+	{
+		
+		//supprimer un cadeau d'une liste
+		$model = new \Models\User();
+		try{
+			$model -> deleteUser($_GET['id']);
+		} catch(\Exception $e) {
+			print_r($e);
+		}
+		
 	}
 }
-
-

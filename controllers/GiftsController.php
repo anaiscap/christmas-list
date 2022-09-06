@@ -8,6 +8,10 @@ class GiftsController {
 	public function __construct()
 	{
 		$this -> redirectIfNotUser();
+		$this -> message1 = "";
+		$this -> message2 = "";
+		$this -> message3 = "";
+		$this -> message4 = "";
 	}
 
 	public function submitGift()
@@ -15,9 +19,25 @@ class GiftsController {
 		if (isset( $_POST['title']) && !empty($_POST['title']) && isset( $_POST['link']) && !empty($_POST['link']) && isset( $_POST['price']) && !empty($_POST['price']) )
 		{
 			//préparer les données pour les mettre dans la base de données
-			$title = $_POST['title'];
+			$title_curr = $_POST['title'];
+			if (!preg_match("/^[a-zA-Z]+$/",$title_curr)) {
+				$title_curr = false; 
+			} else { 
+				$title = $title_curr;
+			}
 			$link = $_POST['link'];
-			$price = $_POST['price'];
+			/*if (!preg_match("/^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)
+			(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/",$link_curr)) {
+				$link_curr = false; 
+			} else { 
+				$link = $link_curr;
+			}*/
+			$price_curr = $_POST['price'];
+			if (!preg_match("/^((\d{1,3}|\s*){1})((\,\d{3}|\d)*)(\s*|\.(\d{2}))$/",$price_curr)) {
+				$price_curr = false; 
+			} else { 
+				$price = $price_curr;
+			}
 			$gift_src = "assets/img/gifts/{$_FILES['gift_src']['name']}";
 			$id_list = $_GET['id'];
 
@@ -26,8 +46,18 @@ class GiftsController {
 
 			//mettre les datas en bdd
 			$model = new \Models\Gift();
-			$model -> addGifts($title, $gift_src, $link, $price, $id_list);
-			
+			try
+			{
+				$model -> addGifts($title, $gift_src, $link, $price, $id_list);
+			} catch(\Exception $e)
+			{
+				if ($title_curr == false) {
+					$this -> message1 = "Titre invalide";
+					}
+				else if ($price_curr == false) {
+					$this -> message2 = "Prix invalide";
+					}
+			}
 		}
 	}
 	// fonction permettant d'afficher les cadeaux d'une liste

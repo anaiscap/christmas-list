@@ -72,7 +72,6 @@ class ConnectionController
 			else
 			{
 				$this -> message2 = "Mauvais mot de passe";
-				var_dump($_SESSION['idUser']);
 			}
 		}
 	}

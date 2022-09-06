@@ -29,6 +29,12 @@ class User extends Database
 		WHERE id_user = ?",[$firstName, $lastName, $avatar, $email, $password, $id]);
 	}
 
+	public function deleteUser($id)
+	{
+		//requête sql qui permet la suppression de la liste
+		$this -> query("DELETE FROM users WHERE id_user= ? ",[$id]);
+	}
+
 	public function getUserByEmail($email)
 	{
 		//requête sql qui permet de trouver un utilisateur particulier par son email

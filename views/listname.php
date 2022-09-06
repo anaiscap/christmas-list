@@ -8,6 +8,7 @@
 				<label for='name'>Nom de la liste</label>
 				<input type="text" name="name" id="name"/>
 			</p>
+			<p><?= $this -> $message2 ?></p>
 			<button class="white-btn" type="submit">ENREGISTRER</button>
 	</form>
 </div>

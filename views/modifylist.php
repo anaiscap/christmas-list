@@ -25,10 +25,13 @@
 					<p class="formgift margin-right" >
 						<label for='title'>Titre du cadeau</label>
 						<input type="text" name="title" id="title" />
+						<span><?= $this -> message1 ?></span>
 					</p>
+					
 					<p class="formgift margin-right">
 						<label for='price'>Prix</label>
 						<input type="number" name="price" id="price" />
+						<span><?= $this -> message2 ?></span>
 					</p>
 					
 				</div>
@@ -40,11 +43,11 @@
 							pattern="https://.*" size="30"
 							>
 					</p>
+					<p><?= $this -> message3 ?></p>
 					<p class="formgift margin-right">
 						<label for="gift_src">Image</label>
 						<input type="file" name="gift_src" id="gift_src" />
 					</p>
-					
 				</div>
 			</div>
 			<button class="white-btn center" type="submit">AJOUTER À LA LISTE</button>	
