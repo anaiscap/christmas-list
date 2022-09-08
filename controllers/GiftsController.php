@@ -38,12 +38,35 @@ class GiftsController {
 			} else { 
 				$price = $price_curr;
 			}
-			$gift_src = "assets/img/gifts/{$_FILES['gift_src']['name']}";
+
+			$file = $_FILES['gift_src'];
+			$name = $file['name'];
+			$temporary_file = $file['tmp_name']; // temporary path
+			$str_to_arry = explode('.',$name);
+			$extension = end($str_to_arry); // get extension of the file.
+			$upload_location = "assets/img/gifts/"; // targeted location
+			$new_name = "upload-image-".time().".".$extension; // new name
+			$location_with_name = $upload_location.$new_name; // finel new file
+			$file_size = getimagesize($temporary_file);
+			
+			$gift_src_curr = $location_with_name;
+			// Exit if is not a valid image file
+			$image_type = exif_imagetype($temporary_file["tmp_name"]);
+			if (!$image_type) {
+				$gift_src_curr = false;
+			}else { 
+                $gift_src = $gift_src_curr;
+            }
+
+			if ($file_size > 2048) {
+				$gift_src_curr = false;
+			}else { 
+                $gift_src = $gift_src_curr;
+            }
+
+
+			move_uploaded_file($temporary_file, $location_with_name);
 			$id_list = $_GET['id'];
-
-			//upload mon image
-			move_uploaded_file ($_FILES['gift_src']['tmp_name'], $gift_src);
-
 			//mettre les datas en bdd
 			$model = new \Models\Gift();
 			try
@@ -57,6 +80,12 @@ class GiftsController {
 				else if ($price_curr == false) {
 					$this -> message2 = "Prix invalide";
 					}
+				else if (!$image_type) {
+						$this -> message4 = "Ceci n'est pas une image.";
+					}
+				else if ($file_size > 2048) {
+					$this -> message3 = "L'image est trop grande";
+				}
 			}
 		}
 	}
@@ -81,6 +110,7 @@ class GiftsController {
 		if(!empty($_POST) ){
 			$this -> submitGift();
 		}
+		
 		//modifier une liste de l'utilisateur
 		$model = new \Models\Lists();
 		$lists = $model -> getListById($_GET['id']);
@@ -94,9 +124,11 @@ class GiftsController {
 	// supprime un cadeau
 	public function delete_gift()
 	{
+		
 		//supprimer un cadeau d'une liste
 		$model = new \Models\Gift();
-		$model -> deleteGift($_GET['id']);
+		$model -> deleteGift($_GET['id'], $_SESSION['idUser']);
+ 
 	}
 
 	// supprime un cadeau
@@ -116,7 +148,7 @@ class GiftsController {
 			//mettre les datas en bdd
 			$model = new \Models\Gift();
 			$model -> addBooking($id_user, $id_gift);
-			header("Location: index.php?route=displayBooking");
+			header("Location:displayBooking");
 			exit;
 	}
 

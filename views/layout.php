@@ -36,7 +36,7 @@
                 <div class="sidenav-content">
                   <a class="hover-link-animation" href="account"><img class="avatar-img" src="<?= $_SESSION['avatar'] ?>" alt=""></a>
                   <a class="hover-link" href="home">Accueil</a>
-                  <a class="hover-link" href="index.php?route=mylists&id_user=<?= $_SESSION['idUser'] ?>">Mes Listes</a>
+                  <a class="hover-link" href="mylists">Mes Listes</a>
                   <a class="hover-link" href="lists">Listes de mes amis</a>
                   <a class="hover-link" href="displayBooking">Mes cadeaux</a>
                   <a class="hover-link" href="home#usersearch">Chercher mes amis</a>
@@ -53,7 +53,7 @@
                 </span>
               </a>
               <div class="desktop">
-              <a class="hover-link" href="index.php?route=mylists&id_user=<?= $_SESSION['idUser'] ?>">Mes Listes d'envies</a>
+              <a class="hover-link" href="mylists">Mes Listes d'envies</a>
               <a class="hover-link" href="lists">Listes de mes amis</a>
               <a class="hover-link" href="displayBooking"><img class="navicon" src="assets/img/gift1.png" alt=""></a>
               <a class="hover-link" href="home#usersearch"><img class="navicon" src="assets/img/addfriend2.png" alt=""></a>

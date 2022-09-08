@@ -2,15 +2,15 @@
 
     <?php if(isset($_SESSION['user'])): ?>
         <div class="account-frame">
-            <img class="avatar-img" src="<?= $_SESSION['avatar'] ?>" alt="avatar-utilisateur">
-            <h1 class="center"><span> <?= $users['first_name'] ?> <?= $users['last_name'] ?></span></h1>
+            <img class="avatar-img" src="<?= htmlspecialchars($_SESSION['avatar']) ?>" alt="avatar-utilisateur">
+            <h1 class="center"><span> <?= htmlspecialchars($users['first_name'] .' '. $users['last_name']); ?></span></h1>
         </div>
     <?php endif; ?>     
     
     <div class="account">
         <div>
             <div class="center gift">
-                <a href="index.php?route=mylists&id_user=<?= $_SESSION['idUser'] ?>">
+                <a href="index.php?route=mylists">
                     <img class="icon" src="assets/img/list-icon.png" alt="icone-liste">
                     <h2>Mes listes</h2>
                 </a>

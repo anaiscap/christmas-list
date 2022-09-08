@@ -54,17 +54,17 @@ class NewUserController {
 
 			//préparer les données pour les mettre dans la base de données
 			$firstName_curr = $_POST['firstName'];
-			if (!preg_match("/^[a-zA-Z]+$/",$firstName_curr)) {
+			if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ]+$/",$firstName_curr)) {
 				$firstName_curr = false; 
 			} else { $firstName = $firstName_curr;
 			}
 			$lastName_curr = $_POST['lastName'];
-			if (!preg_match("/^[a-zA-Z]+$/",$lastName_curr)) {
+			if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ]+$/",$lastName_curr)) {
 				$lastName_curr = false; 
 			}else { 
 				$lastName = $lastName_curr;
 			}
-			$avatar= htmlspecialchars($_POST['avatar']);
+			$avatar= $_POST['avatar'];
 			
 			$email_curr = $_POST['email'];
 			if (!filter_var($email_curr, FILTER_VALIDATE_EMAIL)) {
@@ -84,12 +84,10 @@ class NewUserController {
 			try 
 			{
 			$model -> AddUser($firstName, $lastName, $avatar, $email, $pw);
-				//header('Location: index.php?page=home');
-				//exit;
+		
 			}
 			catch(\Exception $e)
 			{
-				print_r($e);
 				if ($firstName_curr == false) {
 					$this -> message3 = "Prénom invalide";
 					}
@@ -111,11 +109,12 @@ class NewUserController {
 		}
 			$user = $model -> getUserByEmail($email);
 			
-			$_SESSION['id_user'] = $user['id_user'];
-			$this -> message6 = "Le compte a bien été créé, veuillez vous connecter via la page CONNEXION.";
-			
-			//header('location:home');
-			//exit;
+			$_SESSION['user'] = htmlspecialchars($user['first_name']).' '.htmlspecialchars($user['last_name']);
+			$_SESSION['avatar'] = htmlspecialchars($user['avatar_src']);
+			$_SESSION['idUser'] = htmlspecialchars($user['id_user']);
+			//redirige vers la page d'accueil
+			header('Location: account');
+			exit;
 	}
 	
 }

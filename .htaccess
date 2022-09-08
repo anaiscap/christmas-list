@@ -5,6 +5,7 @@ ErrorDocument 404 http://localhost:8888/christmas/christmas/home
 Options +FollowSymlinks
 RewriteEngine on
 
+RewriteRule ^notfound$  index.php?route=notfound [L]
 RewriteRule ^admin$  index.php?route=admin [L]
 RewriteRule ^dashboard$  index.php?route=dashboard [L]
 RewriteRule ^modifyUser$  index.php?route=modifyUser [L]
@@ -21,6 +22,7 @@ RewriteRule ^newlist$  index.php?route=newlist [L]
 RewriteRule ^modify$  index.php?route=modify [L]
 RewriteRule ^parameters$  index.php?route=parameters [L]
 RewriteRule ^newpassword$  index.php?route=newpassword [L]
+RewriteRule ^mylists$  index.php?route=mylists [L]
 RewriteRule ^lists$  index.php?route=lists [L]
 RewriteRule ^displayList$  index.php?route=displayList [L]
 RewriteRule ^modifyList$  index.php?route=modifyList [L]

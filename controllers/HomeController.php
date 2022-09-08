@@ -19,8 +19,8 @@ class HomeController
         $model1 = new \Models\User();
 		$users = $model1 -> getUserById($_GET['id']);
 		$model = new \Models\Lists();
-		$lists = $model -> getAllLists();
-		$view = 'views/userslists.php';
+		$lists = $model -> getAllListsByUser($_GET['id']);
+        $view = 'views/userslists.php';
         include 'views/layout.php';
 	}
     

@@ -13,6 +13,7 @@ class AdminController
     public function __construct()
     {
 		$this -> redirectIfUser();
+		$this -> redirectIfNotUser();
         $this -> message1 = "";
         $this -> message2 = "";
 		$this -> message3 = "";
@@ -46,7 +47,7 @@ class AdminController
 		include 'models/Admin.php';
 		
 		$login = htmlspecialchars($_POST['login']);
-		$pw = $_POST['pw'];
+		$pw = htmlspecialchars($_POST['pw']);
 		
 		//comparer avec ce que j'ai en bdd
 		$model = new \Models\Admin();
@@ -100,20 +101,14 @@ class AdminController
 
 			//préparer les données pour les mettre dans la base de données
 			$id = $_GET['id'];
-			$firstName = htmlspecialchars($_POST['first_name']);
-			$lastName = htmlspecialchars($_POST['last_name']);
-			$avatar = htmlspecialchars($_POST['avatar']);
-			$email = htmlspecialchars($_POST['email']);
-			$password = htmlspecialchars(password_hash($_POST['new_password'], PASSWORD_DEFAULT));
+			$password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
 		
 		$model = new \Models\User();
 		try{
-			$model -> ModifyUser($firstName, $lastName, $avatar, $email, $password, $id);
+			$model -> ModifyUserPassword($password, $id);
 			
 
 		} catch(\Exception $e) {
-			print_r($e);
-			print_r($password);
 			if ($pw_curr == false) {
 				$this -> message3 = "Le mot de passe doit contenir au moins 8 caractères, dont 1 majuscule, 1 minuscule, 1 chiffre, et 1 caractère spécial.";
 			}
@@ -122,6 +117,8 @@ class AdminController
 		header('location:dashboard');
 		exit;	
 	}
+
+	
 	public function delete_user()
 	{
 		

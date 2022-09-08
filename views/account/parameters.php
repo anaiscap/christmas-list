@@ -2,8 +2,8 @@
 
     <?php if(isset($_SESSION['user'])): ?>
         <div class="account-frame">
-            <img class="avatar-img" src="<?= $avatarsrc['avatar_src'] ?>" alt="avatar-utilisateur">
-            <h1 class="center"><span> <?= $users['first_name'] ?> <?= $users['last_name'] ?></span></h1>
+            <img class="avatar-img" src="<?= htmlspecialchars($avatarsrc['avatar_src']) ?>" alt="avatar-utilisateur">
+            <h1 class="center"><span> <?= htmlspecialchars($users['first_name'] .' '. $users['last_name']); ?></span></h1>
         </div>
         <form class="sign-up" method="POST">
         
@@ -22,16 +22,16 @@
         <h2>Paramètres du compte</h2>
         <fieldset >
             <p><label for="first_name">Prénom</label>
-            <input name="first_name" id="first_name" type="text" value="<?= $users['first_name'] ?>"></p>
+            <input name="first_name" id="first_name" type="text" value="<?= htmlspecialchars($users['first_name']) ?>"></p>
             <p><?= $this -> $message1 ?></p>
             <p><label for="last_name">Nom</label>
-            <input name="last_name" id="last_name" type="text" value="<?= $users['last_name'] ?>"></p>
+            <input name="last_name" id="last_name" type="text" value="<?= htmlspecialchars($users['last_name']) ?>"></p>
             <p><?= $this -> $message2 ?></p>
             <p><label for="email">Adresse email</label>
-            <input name="email" id="email" type="email" value="<?= $users['email'] ?>"></p>
+            <input name="email" id="email" type="email" value="<?= htmlspecialchars($users['email']) ?>"></p>
             <p><?= $this -> $message3 ?></p>
-            <p><?= $users['msg2_email'] ?></p>
-            <input name="password" id="password" type="hidden" value="<?= $users['password'] ?>">
+           
+            <input name="password" id="password" type="hidden" value="<?= htmlspecialchars($users['password']) ?>">
             <p><?= $this -> $message4 ?></p>
             <p><?= $this -> $message5 ?></p>
             <p><?= $this -> $message6 ?></p>

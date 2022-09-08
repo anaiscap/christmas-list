@@ -569,6 +569,9 @@ a.hover-link:active {color: var(--primary) !important;}
 /* This makes room for the triangle */
 margin-left: 19px; position: relative; color: white; font-weight: 300; font-size: 22px; line-height: 38px; padding: 0 10px 0 10px;}
 
+
+.notfound {width: 100vw; height: 80vh;}
+.errormsg {position: absolute; top: 35vh; left: 0; right : 0 ;}
 /*************************/
 /***     RESPONSIVE   ***/
 /***********************/

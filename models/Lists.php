@@ -18,7 +18,6 @@ class Lists extends Database
 	{
 		return $this -> findAll('
 			SELECT id_list, id_user, name, date FROM lists
-			ORDER BY date DESC
 			WHERE id_user = ?',[$id]);
 	}
 	
@@ -42,7 +41,8 @@ class Lists extends Database
 	public function modifyList($name, $id )
 	{
 		//requêtes sql qui permet la modification d'une liste
-		$this -> query("UPDATE lists 
+		$this -> query(
+		"UPDATE lists 
 		SET name = ?
 		WHERE id_list = ?",[$name, $id]);
 	}
@@ -66,10 +66,13 @@ class Lists extends Database
 		WHERE subscription.id_user = ?',[$id]);
 	}
 
-	public function deleteList($id)
+	public function deleteList($id, $user)
 	{
 		//requête sql qui permet la suppression de la liste
-		$this -> query("DELETE FROM lists WHERE id_list = ? ",[$id]);
+		$this -> query("
+		DELETE FROM lists 
+		WHERE id_list = ?
+		AND (SELECT 1 FROM users WHERE id_user=lists.id_user AND id_user= ?)",[$id, $user]);
 	}
 
 	public function deleteSubscription($id)

@@ -59,12 +59,12 @@ class AccountController
 		{
 		//préparer les données pour les mettre dans la base de données
 		$firstName_curr = $_POST['first_name'];
-		if (!preg_match("/^[a-zA-Z]+$/",$firstName_curr)) {
+		if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ]+$/",$firstName_curr)) {
 			$firstName_curr = false; 
 		} else { $firstName = $firstName_curr;
 		}
 		$lastName_curr = $_POST['last_name'];
-		if (!preg_match("/^[a-zA-Z]+$/",$lastName_curr)) {
+		if (!preg_match("/^[A-Za-zÀ-ÖØ-öø-ÿ]+$/",$lastName_curr)) {
 			$lastName_curr = false; 
 		}else { 
 			$lastName = $lastName_curr;
@@ -76,7 +76,7 @@ class AccountController
 		}else { 
 			$email = $email_curr;
 		}
-		$password = $_POST['password'];
+		$password =  $_POST['password'];
 		
 		$id = $_SESSION['idUser'];
 		$model = new \Models\User();
@@ -99,8 +99,7 @@ class AccountController
 		}
 		
 	}
-		//header('location:parameters');
-          //  exit;
+
 	}
 
 	public function modifyPassword()
@@ -122,14 +121,10 @@ class AccountController
 			{
 				//le mot de passe correspond
 				//préparer les données pour les mettre dans la base de données
-			$first_name = $_POST['first_name'];
-			$last_name = $_POST['last_name'];
-			$avatar= $_POST['avatar'];
-			$email = $_POST['email'];
 			$password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
 			//$id = $_SESSION['idUser'];
 			$model = new \Models\User();
-			$users = $model -> ModifyUser($first_name, $last_name, $avatar, $email, $password, $id);
+			$users = $model -> ModifyUserPassword( $password, $id);
 			
 			
 			//redirige vers la page d'accueil

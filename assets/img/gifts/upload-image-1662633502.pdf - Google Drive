@@ -1,0 +1,223 @@
+Connexion
+<https://accounts.google.com/ServiceLogin?service=wise&passive=1209600&osid=1&continue=https://drive.google.com/file/d/1G11F57RRibQ9O7YrJUO_WjiDPCnCy-iP/view&followup=https://drive.google.com/file/d/1G11F57RRibQ9O7YrJUO_WjiDPCnCy-iP/view&ec=GAZAGQ>
+Approuver
+Refuser
+Afficher les détails
+Page
+1
+/7
+Chargement…
+{"id": "1G11F57RRibQ9O7YrJUO_WjiDPCnCy-iP", "title": "RNCP 5 - Règles
+d\x27évaluation technique des dossiers v1.1.pdf", "mimeType":
+"application\/pdf"}
+
+
+    Page 1 sur 7
+
+RNCP 5 - Règles d'évaluation technique
+
+des dossiers
+
+Version 1.1
+
+Les compétences de validation technique du titre sont un minimum à
+
+atteindre. Vous devez faire mieux que ce qui est noté ici et aller plus
+
+loin que ce que vous avez vu en cours.
+
+Page 1 sur 7
+
+
+    Page 2 sur 7
+
+Principe général de notation
+
+● Compétences front requises :
+
+○ mettre en place une interface utilisateur responsive et dynamique
+
+○ produire du code propre et valide
+
+○ utiliser les bonnes balises en fonction des besoins
+
+○ privilégier le flex/grid
+
+● Compétences back requises :
+
+○ utilisations de structures de contrôles
+
+○ mettre en place un backoffice complet et sécurisé
+
+○ mettre en place un CRUD
+
+○ respecter le MVC
+
+○ utilisation de la POO
+
+Validation des dossiers
+
+● Validation minimum pour l’intégration (HTML et CSS) :
+
+○ OK pour les deux
+
+○ LÉGER & BIEN
+
+● Validation minimum pour le développement (JS, PHP et SQL) :
+
+○ OK pour les trois
+
+○ un BIEN et deux LÉGER
+
+● Une matière en inacceptable et le dossier est ajourné
+
+Barèmes général
+
+- INACCEPTABLE (au moins un des points suivants) :
+
+● failles de sécurité (xss, sql)
+
+● erreurs (500)
+
+● pas responsive
+
+● triche
+
+● exo vu en cours
+
+● mauvaise dénomination des fichiers
+
+- LÉGER (au moins un des points suivants) :
+
+● minimum (flemme)
+
+● suspicion de copier coller intégral (exo vu en cours, trouvable sur le
+net)
+
+● mauvaise dénomination (des variables/urls)
+
+- OK :
+
+● pas de maladresse, on sent que l'élève maîtrise le langage.
+
+- BIEN :
+
+● on respecte toutes les bonnes pratiques
+
+○ commentaires / SEO / Optimisation / bon nommage / découpage des fichiers
+
+- TB:
+
+● l'élève va plus loin que le cours
+
+Page 2 sur 7
+
+
+    Page 3 sur 7
+
+Notation du code HTML
+
+- INACCEPTABLE (au moins un des points suivants) :
+
+● duplication d’id
+
+● css inline
+
+● balise style dans le html (en-tête ou corps)
+
+● uniquement bootstrap
+
+● js inline
+
+● charset invalide ou non pertinent
+
+- LÉGER (tous les points suivants) :
+
+● bonne indentation
+
+● bonne structure
+
+● balises fermantes fermées
+
+● responsive
+
+● alt sur les <img>
+
+● bonne utilisation des balises sémantiques
+
+○ pas d’imbrication incompréhensible (ex : article dans section dans
+article)
+
+○ pas d’imbrication douteuse (article dans header)
+
+● accessibilité ok
+
+● types supportés dans les input
+
+● formulaire propre et utilisation de label
+
+● pas trop de <br>
+
+- OK (tous les points suivants) :
+
+● Utilisation de font-family (même prise sur Google Fonts)
+
+● commentaires
+
+● title sur les <a>
+
+● utilisation correcte des balises HTML5
+
+● aucun <br>
+
+● “valide” W3C
+
+- BIEN (tous les points suivants) :
+
+● code parfaitement propre
+
+● SEO-friendly
+
+- TB (deux des points suivants) :
+
+● création SVG
+
+● backend admin étoffé
+
+● 120 caractères par ligne (dans la limite du raisonnable) pour la
+lisibilité du code
+
+Page 3 sur 7
+RNCP 5 - Règles d'évaluation technique des dossiers v1.1.pdf
+RNCP 5 - Règles d'évaluation technique des dossiers v1.1.pdf
+Ouvrir
+Extraire
+Ouvrir avec
+Se connecter
+Détails
+Commentaires
+Informations générales
+Type
+PDF
+Dimensions
+Taille
+77 Ko
+Durée
+Emplacement
+Dernière modification
+10:40 11 févr.
+Création
+10:13 1 sept. 2021
+Dernière ouverture par moi
+Partage
+Tous les utilisateurs disposant du lien
+Consultation autorisée
+Pascal Charreix
+Propriétaire
+Description
+Aucune description
+Autorisation de téléchargement
+Téléchargement autorisé pour les lecteurs
+Copier
+Ajoutez un commentaire
+Affichage de RNCP 5 - Règles d'évaluation technique des dossiers v1.1.pdf

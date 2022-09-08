@@ -39,10 +39,13 @@ class Gift extends Database
 		WHERE id_gift = ?",[$title, $src, $link, $price]);
 	}
 
-	public function deleteGift($id)
+	public function deleteGift($id, $user)
 	{
 		//requête sql qui permet la suppression de la liste
-		$this -> query("DELETE FROM gifts WHERE id_gift = ? ",[$id]);
+		$this -> query('
+		DELETE FROM gifts 
+		WHERE id_gift = ?
+		AND (SELECT 1 FROM lists WHERE id_list=gifts.id_list AND id_user= ?)', [$id, $user]);
 	}
 
 	public function getGiftById(int $id):array

@@ -28,7 +28,7 @@
 		</div>
 		<div class="center container2 about-container">
 			<div class="container2 about-wrapper gift">
-				<img class="about-img" src="assets/img/friend-list.png" alt="">
+				<img class="about-img" src="assets/img/addfriend2.png" alt="">
 				<p>Recherchez vos amis pour vous inscrire à leurs listes</p>
 			</div>
 			<img class="curve-right" src="assets/img/arrow5.png" alt="">
@@ -53,8 +53,8 @@
 				<?php foreach($users as $user ): ?>
 					<?php if ($user['id_user'] !== $_SESSION['idUser']) { ?>
 					<li class="mylists">
-						<a href="index.php?route=userlists&id=<?=$user['id_user']?>"><img class="avatar" src="<?= $user['avatar_src'] ?>" alt=""></a>
-						<p><?= $user['first_name'] ?> <?= $user['last_name'] ?></p>
+						<a href="index.php?route=userlists&id=<?=$user['id_user']?>"><img class="avatar" src="<?= htmlspecialchars($user['avatar_src']) ?>" alt=""></a>
+						<p><?= htmlspecialchars($user['first_name'] .' '. $user['last_name']); ?></p>
 					</li>
 					<?php	} ?>	
 				<?php endforeach; ?>

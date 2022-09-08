@@ -4,7 +4,7 @@ const date = Date.now();
 const christmasStart = new Date('2022-12-01');
 const christmasEnd = new Date('2022-12-31');
 const motherStart = new Date('2022-05-20');
-const motherEnd = new Date('2022-05-29');
+const motherEnd = new Date('2022-06-29');
 const fatherStart = new Date('2022-06-10');
 const fatherEnd = new Date('2022-06-29');
 const video = document.querySelector('video');
@@ -44,6 +44,7 @@ function themeHandler() {
 
 window.onload = checkTheme;
 function checkTheme() {
+  if(video === null) return;
   const localStorageTheme = localStorage.getItem("theme");
   if (localStorageTheme !== null && localStorageTheme === "green") {
     document.body.className = localStorageTheme;
@@ -102,28 +103,28 @@ function deleted(){
         document.querySelector(`[data-id="${this.dataset.id}"]`).remove();
         console.log(document.querySelector(`[data-id="${this.dataset.id}"]`)); 
       });
-        
     }
-    
-};
+}
 
 function searchUser(){
+  if(document.getElementById("the-filter") !== null) {
 
-  // (A) GET HTML ELEMENTS
-var filter = document.getElementById("the-filter"), // search box
-list = document.querySelectorAll("#the-list li"); // all list items
-// (B) ATTACH KEY UP LISTENER TO SEARCH BOX
-filter.onkeyup = () => {
-  // (B1) GET CURRENT SEARCH TERM
-  let search = filter.value.toLowerCase();
-  // (B2) LOOP THROUGH LIST ITEMS - ONLY SHOW THOSE THAT MATCH SEARCH
-  for (let i of list) {
-    let item = i.innerHTML.toLowerCase();
-    if (item.indexOf(search) == -1) { i.classList.add("hide"); }
-    else { i.classList.remove("hide"); }
+      // (A) GET HTML ELEMENTS
+    var filter = document.getElementById("the-filter"), // search box
+    list = document.querySelectorAll("#the-list li"); // all list items
+    // (B) ATTACH KEY UP LISTENER TO SEARCH BOX
+    filter.onkeyup = () => {
+      // (B1) GET CURRENT SEARCH TERM
+      let search = filter.value.toLowerCase();
+      // (B2) LOOP THROUGH LIST ITEMS - ONLY SHOW THOSE THAT MATCH SEARCH
+      for (let i of list) {
+        let item = i.innerHTML.toLowerCase();
+        if (item.indexOf(search) == -1) { i.classList.add("hide"); }
+        else { i.classList.remove("hide"); }
+      }
+    };
   }
-};
-};
+}
 
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -134,8 +135,8 @@ document.addEventListener("DOMContentLoaded", function(){
         buttons[i].addEventListener('click',deleted);
     }
 
-    openBtn.onclick = openNav;
-    closeBtn.onclick = closeNav;
+    if(openBtn !== null)    openBtn.onclick = openNav;
+    if(closeBtn !== null)   closeBtn.onclick = closeNav;
 
 
 });

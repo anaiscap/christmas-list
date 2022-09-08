@@ -29,6 +29,14 @@ class User extends Database
 		WHERE id_user = ?",[$firstName, $lastName, $avatar, $email, $password, $id]);
 	}
 
+	public function ModifyUserPassword($password, $id )
+	{
+		//requêtes sql qui permet la modification d'une liste
+		$this -> query("UPDATE users 
+		SET  password = ?
+		WHERE id_user = ?",[$password, $id]);
+	}
+
 	public function deleteUser($id)
 	{
 		//requête sql qui permet la suppression de la liste

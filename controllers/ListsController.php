@@ -39,7 +39,7 @@ class ListsController {
 	{
 		//supprimer une liste de l'utilisateur
 		$model = new \Models\Lists();
-		$model -> deleteList($_GET['id']);
+		$model -> deleteList($_GET['id'], $_SESSION['idUser']);
 	}
 
 	// supprime un abonnement à une liste
@@ -62,7 +62,6 @@ class ListsController {
 	public function submitList()
 	{
 		//valider les données enlever tot ce qui est dangereux, bon format
-		$nameErr = "";
 
 		if (isset( $_POST['name']) && !empty($_POST['name']))
 		{
@@ -73,11 +72,10 @@ class ListsController {
 			if (!preg_match("/^[a-zA-Z0-9 ]*$/",$name_curr)) {
 				$name_curr = false; 
 			} else { 
-				$name = htmlspecialchars($name_curr);
-				header('Location: index.php?route=mylists');
+				$name = $name_curr;
+				header('Location: mylists');
 				//exit;
 			}
-		
 			//mettre les datas en bdd
 			$model = new \Models\Lists();
 			try {
@@ -86,10 +84,7 @@ class ListsController {
 				if ($name_curr == false) {
 					$this -> message1 = "Nom invalide";
 				}
-			} 
-			
-
-			
+			}		
 		}
 	}
 
@@ -110,15 +105,15 @@ class ListsController {
 				if (!preg_match("/^[a-zA-Z0-9 ]*$/",$name_curr)) {
 					$name_curr = false; 
 				} else { 
-					$name = htmlspecialchars($name_curr);
-					header('Location: index.php?route=mylists');
-					//exit;
+					$name = $name_curr;
 				} 
 				//mettre les datas en bdd
 				$model = new \Models\Lists();
 				try {
-					$model -> ModifyList($name, $_GET['id']);
+					$model -> modifyList($name, $_GET['id']);
+					header('Location: mylists');
 				} catch(\Exception $e) {
+					
 					if ($name_curr == false) {
 						$this -> message2 = "Nom invalide";
 						}
