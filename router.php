@@ -5,12 +5,12 @@ switch( $_GET['route'] )
 
 // PAGES ADMIN
 case 'admin':
-    $controller = new Controllers\AdminController();
+    $controller = new Controllers\HomeController();
     if(!empty($_POST))
     {
-        $controller -> submit();
+        $controller -> submitAdmin();
     }
-    $controller->display();
+    $controller->displayAdmin();
     break;
 case 'dashboard':
     $controller = new Controllers\DashboardController();

@@ -28,13 +28,7 @@ class AdminController
 		}
     }
     
-	public function display()
-	{
-
-		//afficher le formulaire de connexion
-        $view = 'views/admin/admin.php';
-        include_once 'views/layout.php';
-	}
+	
 	public function disconnect()
 	{
 	    //je déconnecte l'utilisateur
@@ -42,43 +36,7 @@ class AdminController
 			header('location:index.php');
 			exit;
 	}
-	public function submit() 
-	{
-		include 'models/Admin.php';
-		
-		$login = htmlspecialchars($_POST['login']);
-		$pw = htmlspecialchars($_POST['pw']);
-		
-		//comparer avec ce que j'ai en bdd
-		$model = new \Models\Admin();
-		//aller chercher les infos de l'utilisateur/iden qui essaye dese connecter
-		$admin = $model -> getAdminByLogin($login);
-		
-		//si l'identifiant existe dans la base alors âdmin contiendrales infos de cet admin
-		//sinon $admin contiendra false
-		
-		if(!$admin)
-		{
-			$this -> message1 = "Mauvais identifiant";
-		}
-		else
-		{
-			//vérifier le mot de passe
-			if(password_verify($pw,$admin['password']))
-			{
-				//le mot de passe correcpond
-				//connecter l'utilisateur
-				$_SESSION['admin'] = $admin['firstname'].' '.$admin['lastname'];
-				//redirige vers la page tableau de bord du backoffice
-				header('location:index.php?page=dashboard');
-				exit;
-			}
-			else
-			{
-				$this -> message2 = "Mauvais mot de passe";
-			}
-		}
-	}	
+	
 
 	public function displayUserParameters()
 	{
